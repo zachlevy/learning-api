@@ -13,5 +13,6 @@ FactoryGirl.define do
   factory :course do
     title "MyString"
     description "MyText"
+    flow ""
   end
 end
