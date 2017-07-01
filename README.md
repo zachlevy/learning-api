@@ -28,3 +28,7 @@ Put ENV vars here
 `$ git push heroku master`
 
 `$ heroku run rake db:migrate`
+
+##### Documentation
+
+`$ bundle exec annotate`
