@@ -1,24 +1,30 @@
-# README
+# Learning Platform
+Learning Platform API. Used for interacting with the client app.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##### Development
 
-Things you may want to cover:
+`$ bundle exec rails s -p 3001`
 
-* Ruby version
+##### Ruby version
 
-* System dependencies
+`2.3.1`
 
-* Configuration
+##### Configuration
+Put ENV vars here
 
-* Database creation
+##### Database
 
-* Database initialization
+`$ bundle exec rake db:reset`
 
-* How to run the test suite
+##### Testing
 
-* Services (job queues, cache servers, search engines, etc.)
+`$ bundle exec rspec`
 
-* Deployment instructions
+##### Services
+(job queues, cache servers, search engines, etc.)
 
-* ...
+##### Deployment instructions
+
+`$ git push heroku master`
+
+`$ heroku run rake db:migrate`
