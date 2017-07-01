@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :challenge_responses
   resources :challenges
   resources :challenge_types
   resources :course_contents
