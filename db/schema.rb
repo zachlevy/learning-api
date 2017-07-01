@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170701223233) do
+ActiveRecord::Schema.define(version: 20170701224928) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 20170701223233) do
     t.jsonb "template_data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "challenges", force: :cascade do |t|
+    t.string "description"
+    t.bigint "challenge_type_id"
+    t.jsonb "body", default: {}
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["challenge_type_id"], name: "index_challenges_on_challenge_type_id"
   end
 
   create_table "contents", force: :cascade do |t|
@@ -67,4 +76,5 @@ ActiveRecord::Schema.define(version: 20170701223233) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "challenges", "challenge_types"
 end
