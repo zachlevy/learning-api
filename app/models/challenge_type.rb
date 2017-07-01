@@ -1,0 +1,2 @@
+class ChallengeType < ApplicationRecord
+end
