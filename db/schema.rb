@@ -30,15 +30,6 @@ ActiveRecord::Schema.define(version: 20170701222330) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "course_contents", force: :cascade do |t|
-    t.bigint "course_id"
-    t.bigint "content_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["content_id"], name: "index_course_contents_on_content_id"
-    t.index ["course_id"], name: "index_course_contents_on_course_id"
-  end
-
   create_table "courses", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -75,6 +66,4 @@ ActiveRecord::Schema.define(version: 20170701222330) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
-  add_foreign_key "course_contents", "contents"
-  add_foreign_key "course_contents", "courses"
 end
