@@ -1,34 +1,48 @@
 # Learning Platform
 Learning Platform API. Used for interacting with the client app.
 
-##### Development
+### Models
+#### Course
+The course model has an attribute `flow` which is a `jsonb` array of all the content in order.
+
+##### Flow Object Format
+```
+{
+  type: "content",
+  id: 123
+}
+```
+
+### Operations
+
+#### Development
 
 `$ bundle exec rails s -p 3001`
 
-##### Ruby version
+#### Ruby version
 
 `2.3.1`
 
-##### Configuration
+#### Configuration
 Put ENV vars here
 
-##### Database
+#### Database
 
 `$ bundle exec rake db:reset`
 
-##### Testing
+#### Testing
 
 `$ bundle exec rspec`
 
-##### Services
+#### Services
 (job queues, cache servers, search engines, etc.)
 
-##### Deployment instructions
+#### Deployment instructions
 
 `$ git push heroku master`
 
 `$ heroku run rake db:migrate`
 
-##### Documentation
+#### Documentation
 
 `$ bundle exec annotate`

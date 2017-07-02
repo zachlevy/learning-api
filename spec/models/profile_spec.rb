@@ -1,17 +1,18 @@
 # == Schema Information
 #
-# Table name: courses
+# Table name: profiles
 #
 #  id          :integer          not null, primary key
-#  title       :string
-#  description :text
+#  demographic :jsonb
+#  preferences :jsonb
+#  details     :jsonb
+#  user_id     :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  flow        :jsonb            not null
 #
 
 require 'rails_helper'
 
-RSpec.describe Course, type: :model do
+RSpec.describe Profile, type: :model do
   pending "add some examples to (or delete) #{__FILE__}"
 end
