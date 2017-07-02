@@ -6,12 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-course_death_and_taxes = Course.create({
-  title: "Except Death and Taxes",
-  description: "Economics. It is said that nothing is certain in life, except death and taxes.",
-  flow: []
-})
-
 # content for death and taxes
 content = Content.create([
   {
@@ -54,18 +48,23 @@ challenges = Challenge.create([
   }
 ])
 
-course_death_and_taxes.update(flow: [
-  {
-    type: "content",
-    id: Content.first.id
-  }, {
-    type: "challenge",
-    id: Challenge.first.id
-  }, {
-    type: "content",
-    id: Content.second.id
-  }, {
-    type: "challenge",
-    id: Challenge.second.id
-  }
-])
+# course on death and taxes
+course_death_and_taxes = Course.create({
+  title: "Except Death and Taxes",
+  description: "Economics. It is said that nothing is certain in life, except death and taxes.",
+  flow: [
+    {
+      type: "content",
+      id: Content.first.id
+    }, {
+      type: "challenge",
+      id: Challenge.first.id
+    }, {
+      type: "content",
+      id: Content.second.id
+    }, {
+      type: "challenge",
+      id: Challenge.second.id
+    }
+  ]
+})
