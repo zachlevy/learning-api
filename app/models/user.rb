@@ -34,4 +34,5 @@ class User < ActiveRecord::Base
           :confirmable, :omniauthable
   include DeviseTokenAuth::Concerns::User
   has_many :challenge_responses
+  has_one :profile
 end
