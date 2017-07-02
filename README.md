@@ -1,5 +1,5 @@
-# Learning Platform
-Learning Platform API. Used for interacting with the client app.
+# Learning Platform Rails API
+Used for interacting with the client app.
 
 ### Models
 #### Course
@@ -38,6 +38,7 @@ Put ENV vars here
 (job queues, cache servers, search engines, etc.)
 
 #### Deployment instructions
+Currently hosted on Heroku app `learning-api-production`.
 
 `$ git push heroku master`
 
