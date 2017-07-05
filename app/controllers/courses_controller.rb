@@ -46,6 +46,6 @@ class CoursesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def course_params
-      params.require(:course).permit(:title, :description, :flow)
+      params.require(:course).permit(:title, :description, :flow, :tags)
     end
 end

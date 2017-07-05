@@ -15,5 +15,6 @@ FactoryGirl.define do
     title "MyString"
     description "MyText"
     flow ""
+    tags ""
   end
 end

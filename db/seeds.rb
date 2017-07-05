@@ -95,5 +95,6 @@ course_death_and_taxes = Course.create({
       type: Challenge.third.challenge_type.name,
       id: Challenge.third.id
     }
-  ]
+  ],
+  tags: ["Economics", "Crash Course"]
 })
