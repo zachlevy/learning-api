@@ -6,22 +6,22 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# content for death and taxes
-content = Content.create([
-  {
-    title: "The Economics of Death",
-    embed_url: "https://www.youtube.com/embed/AecowUb79Xk",
-    est_duration: 752
-  },
-  {
-    title: "The Economics of Taxes",
-    embed_url: "https://www.youtube.com/embed/7Qtr_vA3Prw",
-    est_duration: 748
-  }
-])
+# # content for death and taxes
+# content = Content.create([
+#   {
+#     title: "The Economics of Death",
+#     embed_url: "https://www.youtube.com/embed/AecowUb79Xk",
+#     est_duration: 752
+#   },
+#   {
+#     title: "The Economics of Taxes",
+#     embed_url: "https://www.youtube.com/embed/7Qtr_vA3Prw",
+#     est_duration: 748
+#   }
+# ])
 
-# simple Q and A content type
-challenge_type = ChallengeType.create({
+# simple Q and A challenge type
+simple_q_and_a = ChallengeType.create({
   name: "simple_q_and_a",
   template_data: {
     question: "Question?",
@@ -29,18 +29,47 @@ challenge_type = ChallengeType.create({
   }
 })
 
+# youtube video challenge type
+youtube_video = ChallengeType.create({
+  name: "youtube_video",
+  template_data: {
+    title: "The Economics of Taxes",
+    embed_url: "https://www.youtube.com/embed/7Qtr_vA3Prw",
+    est_duration: 748
+  }
+})
+
+youtube_videos = Challenge.create([
+  {
+    description: "The Economics of Death",
+    challenge_type: youtube_video,
+    body: {
+      embed_url: "https://www.youtube.com/embed/AecowUb79Xk",
+      est_duration: 752
+    }
+  },
+  {
+    description: "The Economics of Taxes",
+    challenge_type: youtube_video,
+    body: {
+      embed_url: "https://www.youtube.com/embed/7Qtr_vA3Prw",
+      est_duration: 748
+    }
+  }
+])
+
 # challenges for death and taxes
 challenges = Challenge.create([
   {
     description: "Death question",
-    challenge_type: challenge_type,
+    challenge_type: simple_q_and_a,
     body: {
       question: "Can you avoid death?",
       answer: "No"
     }
   },{
     description: "Taxes question",
-    challenge_type: challenge_type,
+    challenge_type: simple_q_and_a,
     body: {
       question: "Can you avoid taxes?",
       answer: "No"
@@ -54,17 +83,17 @@ course_death_and_taxes = Course.create({
   description: "Economics. It is said that nothing is certain in life, except death and taxes.",
   flow: [
     {
-      type: "content",
-      id: Content.first.id
-    }, {
-      type: "challenge",
+      type: Challenge.first.challenge_type.name,
       id: Challenge.first.id
     }, {
-      type: "content",
-      id: Content.second.id
-    }, {
-      type: "challenge",
+      type: Challenge.second.challenge_type.name,
       id: Challenge.second.id
+    }, {
+      type: Challenge.fourth.challenge_type.name,
+      id: Challenge.fourth.id
+    }, {
+      type: Challenge.third.challenge_type.name,
+      id: Challenge.third.id
     }
   ]
 })
