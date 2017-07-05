@@ -10,7 +10,11 @@ class ChallengesController < ApplicationController
 
   # GET /challenges/1
   def show
-    render json: @challenge
+    # whitelist relations to be nested in response
+    whitelist_methods = [:challenge_type]
+    methods = []
+    methods = params[:include].split(",").map {|m| m.to_sym}.reject {|m| !whitelist_methods.include? m} unless params[:include].nil?
+    render json: @challenge.as_json(methods: methods)
   end
 
   # POST /challenges
