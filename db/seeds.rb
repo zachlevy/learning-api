@@ -39,7 +39,8 @@ youtube_video = ChallengeType.create({
   }
 })
 
-youtube_videos = Challenge.create([
+# videos for economics
+economics_youtube_videos = Challenge.create([
   {
     description: "The Economics of Death",
     challenge_type: youtube_video,
@@ -94,6 +95,66 @@ course_death_and_taxes = Course.create({
     }, {
       type: Challenge.third.challenge_type.name,
       id: Challenge.third.id
+    }
+  ],
+  tags: ["Economics", "Crash Course"]
+})
+
+# computers youtube videos
+computers_youtube_videos = Challenge.create([
+  {
+    description: "Registers and RAM",
+    challenge_type: youtube_video,
+    body: {
+      embed_url: "https://www.youtube.com/embed/fpnE6UAfbtU",
+      est_duration: 736
+    }
+  },{
+    description: "The Central Processing Unit",
+    challenge_type: youtube_video,
+    body: {
+      embed_url: "https://www.youtube.com/embed/FZGugFqdr60",
+      est_duration: 697
+    }
+  }
+])
+
+# challenges for computers
+challenges = Challenge.create([
+  {
+    description: "Ram Question",
+    challenge_type: simple_q_and_a,
+    body: {
+      question: "How many KB in a MB?",
+      answer: "1024"
+    }
+  },{
+    description: "CPU Question",
+    challenge_type: simple_q_and_a,
+    body: {
+      question: "What are CPUs made of?",
+      answer: "Semiconductors"
+    }
+  }
+])
+
+# course on computers
+computers_course = Course.create({
+  title: "Compute This",
+  description: "Computers have taken over the world.",
+  flow: [
+    {
+      type: Challenge.fifth.challenge_type.name,
+      id: Challenge.fifth.id
+    }, {
+      type: Challenge.find(6).challenge_type.name,
+      id: Challenge.find(6).id
+    }, {
+      type: Challenge.find(8).challenge_type.name,
+      id: Challenge.find(8).id
+    }, {
+      type: Challenge.find(7).challenge_type.name,
+      id: Challenge.find(7).id
     }
   ],
   tags: ["Economics", "Crash Course"]
