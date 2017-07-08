@@ -159,3 +159,10 @@ computers_course = Course.create({
   ],
   tags: ["Economics", "Crash Course"]
 })
+
+user1 = User.create({
+  email: "z@z.com",
+  password: "password123",
+  password_confirmation: "password123",
+  confirmed_at: DateTime.now
+})
