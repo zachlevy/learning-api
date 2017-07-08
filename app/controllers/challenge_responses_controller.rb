@@ -17,7 +17,17 @@ class ChallengeResponsesController < ApplicationController
   def create
     @challenge_response = ChallengeResponse.new(challenge_response_params)
 
+    # save initially
     if @challenge_response.save
+      if @challenge_response.input["analysis"] == "sentiment"
+        analyzer = Sentimental.new
+        analyzer.load_defaults
+        analyzer.threshold = 0.1
+        result = analyzer.sentiment(@challenge_response.input["text"])
+        @challenge_response.input["result"] = result
+        @challenge_response.save
+      end
+
       render json: @challenge_response, status: :created, location: @challenge_response
     else
       render json: @challenge_response.errors, status: :unprocessable_entity
@@ -46,6 +56,6 @@ class ChallengeResponsesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def challenge_response_params
-      params.require(:challenge_response).permit(:input, :asked_at, :completed_at, :challenge_id, :user_id)
+      params.require(:challenge_response).permit({:input => [:text, :analysis]}, :asked_at, :completed_at, :challenge_id, :user_id)
     end
 end
