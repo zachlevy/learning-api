@@ -12,6 +12,17 @@ The course model has an attribute `flow` which is a `jsonb` array of all the con
   id: 123
 }
 ```
+#### Challenge Response
+The challenge response model has an attribute `input` which contains an `jsonb` object with an `analysis` property that specifies the approach to analyze the input. The `text` property is the input text.
+
+##### Input Object Format
+```
+{
+  analysis: "sentiment",
+  text: "to be analyzed"
+}
+```
+The input will object will be resaved with a result object property for each object to be analyzed.
 
 ### Operations
 
