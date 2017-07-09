@@ -6,20 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# # content for death and taxes
-# content = Content.create([
-#   {
-#     title: "The Economics of Death",
-#     embed_url: "https://www.youtube.com/embed/AecowUb79Xk",
-#     est_duration: 752
-#   },
-#   {
-#     title: "The Economics of Taxes",
-#     embed_url: "https://www.youtube.com/embed/7Qtr_vA3Prw",
-#     est_duration: 748
-#   }
-# ])
-
 # simple Q and A challenge type
 simple_q_and_a = ChallengeType.create({
   name: "simple_q_and_a",
@@ -33,8 +19,7 @@ simple_q_and_a = ChallengeType.create({
 youtube_video = ChallengeType.create({
   name: "youtube_video",
   template_data: {
-    title: "The Economics of Taxes",
-    embed_url: "https://www.youtube.com/embed/7Qtr_vA3Prw",
+    youtube_id: "7Qtr_vA3Prw",
     est_duration: 748
   }
 })
@@ -43,7 +28,6 @@ youtube_video = ChallengeType.create({
 wikipedia_notes = ChallengeType.create({
   name: "wikipedia_notes",
   template_data: {
-    title: "Battle of Stamford Bridge",
     embed_url: "https://en.m.wikipedia.org/wiki/Battle_of_Stamford_Bridge",
     est_duration: 601
   }
@@ -55,7 +39,7 @@ economics_youtube_videos = Challenge.create([
     description: "The Economics of Death",
     challenge_type: youtube_video,
     body: {
-      embed_url: "https://www.youtube.com/embed/AecowUb79Xk",
+      youtube_id: "AecowUb79Xk",
       est_duration: 752
     }
   },
@@ -63,7 +47,7 @@ economics_youtube_videos = Challenge.create([
     description: "The Economics of Taxes",
     challenge_type: youtube_video,
     body: {
-      embed_url: "https://www.youtube.com/embed/7Qtr_vA3Prw",
+      youtube_id: "7Qtr_vA3Prw",
       est_duration: 748
     }
   }
@@ -138,14 +122,14 @@ computers_youtube_videos = Challenge.create([
     description: "Registers and RAM",
     challenge_type: youtube_video,
     body: {
-      embed_url: "https://www.youtube.com/embed/fpnE6UAfbtU",
+      youtube_id: "fpnE6UAfbtU",
       est_duration: 736
     }
   },{
     description: "The Central Processing Unit",
     challenge_type: youtube_video,
     body: {
-      embed_url: "https://www.youtube.com/embed/FZGugFqdr60",
+      youtube_id: "FZGugFqdr60",
       est_duration: 697
     }
   },{
