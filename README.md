@@ -2,6 +2,14 @@
 Used for interacting with the client app.
 
 ### Models
+#### Challenge
+the challenge model has an attribute `body` which is a `jsonb` with the following optional fields depending on the challenge type
+```
+{
+  est_duration: 123
+}
+```
+
 #### Course
 The course model has an attribute `flow` which is a `jsonb` array of all the content in order.
 

@@ -39,6 +39,16 @@ youtube_video = ChallengeType.create({
   }
 })
 
+# wikipedia notes challenge type
+wikipedia_notes = ChallengeType.create({
+  name: "wikipedia_notes",
+  template_data: {
+    title: "Battle of Stamford Bridge",
+    embed_url: "https://en.m.wikipedia.org/wiki/Battle_of_Stamford_Bridge",
+    est_duration: 601
+  }
+})
+
 # videos for economics
 economics_youtube_videos = Challenge.create([
   {
@@ -82,6 +92,7 @@ challenges = Challenge.create([
 course_death_and_taxes = Course.create({
   title: "Except Death and Taxes",
   description: "Economics. It is said that nothing is certain in life, except death and taxes.",
+  image_url: "http://placehold.it/600x400?text=Death%20Taxes",
   flow: [
     {
       type: Challenge.first.challenge_type.name,
@@ -100,24 +111,6 @@ course_death_and_taxes = Course.create({
   tags: ["Economics", "Crash Course"]
 })
 
-# computers youtube videos
-computers_youtube_videos = Challenge.create([
-  {
-    description: "Registers and RAM",
-    challenge_type: youtube_video,
-    body: {
-      embed_url: "https://www.youtube.com/embed/fpnE6UAfbtU",
-      est_duration: 736
-    }
-  },{
-    description: "The Central Processing Unit",
-    challenge_type: youtube_video,
-    body: {
-      embed_url: "https://www.youtube.com/embed/FZGugFqdr60",
-      est_duration: 697
-    }
-  }
-])
 
 # challenges for computers
 challenges = Challenge.create([
@@ -138,10 +131,38 @@ challenges = Challenge.create([
   }
 ])
 
+
+# computers youtube videos
+computers_youtube_videos = Challenge.create([
+  {
+    description: "Registers and RAM",
+    challenge_type: youtube_video,
+    body: {
+      embed_url: "https://www.youtube.com/embed/fpnE6UAfbtU",
+      est_duration: 736
+    }
+  },{
+    description: "The Central Processing Unit",
+    challenge_type: youtube_video,
+    body: {
+      embed_url: "https://www.youtube.com/embed/FZGugFqdr60",
+      est_duration: 697
+    }
+  },{
+    description: "Battle of Stamford Bridge",
+    challenge_type: wikipedia_notes,
+    body: {
+      embed_url: "https://en.m.wikipedia.org/wiki/Battle_of_Stamford_Bridge",
+      est_duration: 301
+    }
+  }
+])
+
 # course on computers
 computers_course = Course.create({
   title: "Compute This",
   description: "Computers have taken over the world.",
+  image_url: "http://placehold.it/600x400?text=Compute%20This",
   flow: [
     {
       type: Challenge.fifth.challenge_type.name,
@@ -155,9 +176,12 @@ computers_course = Course.create({
     }, {
       type: Challenge.find(7).challenge_type.name,
       id: Challenge.find(7).id
+    }, {
+      type: Challenge.find(9).challenge_type.name,
+      id: Challenge.find(9).id
     }
   ],
-  tags: ["Economics", "Crash Course"]
+  tags: ["Tech", "Crash Course"]
 })
 
 user1 = User.create({

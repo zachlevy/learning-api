@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170705194927) do
+ActiveRecord::Schema.define(version: 20170709031534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20170705194927) do
     t.datetime "updated_at", null: false
     t.jsonb "flow", default: [], null: false
     t.jsonb "tags", default: []
+    t.string "image_url"
   end
 
   create_table "events", force: :cascade do |t|

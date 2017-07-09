@@ -8,6 +8,8 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  flow        :jsonb            not null
+#  tags        :jsonb
+#  image_url   :string
 #
 
 require 'rails_helper'
