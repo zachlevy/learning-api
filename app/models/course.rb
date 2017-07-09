@@ -13,4 +13,9 @@
 #
 
 class Course < ApplicationRecord
+  before_save :calculate_est_duration
+
+  def calculate_est_duration
+    self.est_duration = self.flow.sum { |c| Challenge.find(c["id"]).body["est_duration"] || 0}
+  end
 end

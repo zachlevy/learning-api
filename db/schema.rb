@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20170709031534) do
     t.jsonb "flow", default: [], null: false
     t.jsonb "tags", default: []
     t.string "image_url"
+    t.integer "est_duration"
   end
 
   create_table "events", force: :cascade do |t|
