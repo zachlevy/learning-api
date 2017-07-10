@@ -11,7 +11,8 @@ simple_q_and_a = ChallengeType.create({
   name: "simple_q_and_a",
   template_data: {
     question: "Question?",
-    answer: "Answer."
+    answer: "Answer.",
+    max_length: 140
   }
 })
 
@@ -29,7 +30,8 @@ wikipedia_notes = ChallengeType.create({
   name: "wikipedia_notes",
   template_data: {
     embed_url: "https://en.m.wikipedia.org/wiki/Battle_of_Stamford_Bridge",
-    est_duration: 601
+    est_duration: 601,
+    max_length: 140
   }
 })
 
@@ -60,14 +62,16 @@ challenges = Challenge.create([
     challenge_type: simple_q_and_a,
     body: {
       question: "Can you avoid death?",
-      answer: "No"
+      answer: "No",
+      max_length: 140
     }
   },{
     description: "Taxes question",
     challenge_type: simple_q_and_a,
     body: {
       question: "Can you avoid taxes?",
-      answer: "No"
+      answer: "No",
+      max_length: 140
     }
   }
 ])
@@ -103,14 +107,16 @@ challenges = Challenge.create([
     challenge_type: simple_q_and_a,
     body: {
       question: "How many KB in a MB?",
-      answer: "1024"
+      answer: "1024",
+      max_length: 140
     }
   },{
     description: "CPU Question",
     challenge_type: simple_q_and_a,
     body: {
       question: "What are CPUs made of?",
-      answer: "Semiconductors"
+      answer: "Semiconductors",
+      max_length: 140
     }
   }
 ])
@@ -137,7 +143,8 @@ computers_youtube_videos = Challenge.create([
     challenge_type: wikipedia_notes,
     body: {
       embed_url: "https://en.m.wikipedia.org/wiki/Battle_of_Stamford_Bridge",
-      est_duration: 301
+      est_duration: 301,
+      max_length: 140
     }
   }
 ])
