@@ -54,6 +54,11 @@ Put ENV vars here
 
 `$ bundle exec rake db:reset`
 
+Reset database with
+* `$ heroku pg:reset DATABASE_URL --confirm learning-api-production`
+* `$ heroku run rake db:migrate`
+* `$ heroku run rake db:seed`
+
 #### Testing
 
 `$ bundle exec rspec`
