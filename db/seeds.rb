@@ -157,13 +157,13 @@ start_end_challenges = Challenge.create([
     description: "End of Economics Course",
     challenge_type: suggestion_end,
     body: {
-      courses: [1]
+      courses: [2]
     }
   }, {
     description: "End of Computers Course",
     challenge_type: suggestion_end,
     body: {
-      courses: [2]
+      courses: [1]
     }
   }
 ])
