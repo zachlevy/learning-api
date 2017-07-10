@@ -35,6 +35,22 @@ wikipedia_notes = ChallengeType.create({
   }
 })
 
+# end challenge type
+suggestion_end = ChallengeType.create({
+  name: "suggestion_end",
+  template_data: {
+    courses: [1, 2]
+  }
+})
+
+# start challenge type
+simple_start = ChallengeType.create({
+  name: "simple_start",
+  template_data: {
+
+  }
+})
+
 # videos for economics
 economics_youtube_videos = Challenge.create([
   {
@@ -76,30 +92,6 @@ challenges = Challenge.create([
   }
 ])
 
-# course on death and taxes
-course_death_and_taxes = Course.create({
-  title: "Except Death and Taxes",
-  description: "Economics. It is said that nothing is certain in life, except death and taxes.",
-  image_url: "http://placehold.it/600x400?text=Death%20Taxes",
-  flow: [
-    {
-      type: Challenge.first.challenge_type.name,
-      id: Challenge.first.id
-    }, {
-      type: Challenge.second.challenge_type.name,
-      id: Challenge.second.id
-    }, {
-      type: Challenge.fourth.challenge_type.name,
-      id: Challenge.fourth.id
-    }, {
-      type: Challenge.third.challenge_type.name,
-      id: Challenge.third.id
-    }
-  ],
-  tags: ["Economics", "Crash Course"]
-})
-
-
 # challenges for computers
 challenges = Challenge.create([
   {
@@ -120,7 +112,6 @@ challenges = Challenge.create([
     }
   }
 ])
-
 
 # computers youtube videos
 computers_youtube_videos = Challenge.create([
@@ -149,6 +140,63 @@ computers_youtube_videos = Challenge.create([
   }
 ])
 
+start_end_challenges = Challenge.create([
+  {
+    description: "Start of Economics course",
+    challenge_type: simple_start,
+    body: {
+
+    }
+  }, {
+    description: "Start of Computers course",
+    challenge_type: simple_start,
+    body: {
+
+    }
+  }, {
+    description: "End of Economics Course",
+    challenge_type: suggestion_end,
+    body: {
+      courses: [1]
+    }
+  }, {
+    description: "End of Computers Course",
+    challenge_type: suggestion_end,
+    body: {
+      courses: [2]
+    }
+  }
+])
+
+# course on death and taxes
+course_death_and_taxes = Course.create({
+  title: "Except Death and Taxes",
+  description: "Economics. It is said that nothing is certain in life, except death and taxes.",
+  image_url: "http://placehold.it/600x400?text=Death%20Taxes",
+  flow: [
+    {
+      type: Challenge.find(10).challenge_type.name,
+      id: Challenge.find(10).id
+    }, {
+      type: Challenge.first.challenge_type.name,
+      id: Challenge.first.id
+    }, {
+      type: Challenge.second.challenge_type.name,
+      id: Challenge.second.id
+    }, {
+      type: Challenge.fourth.challenge_type.name,
+      id: Challenge.fourth.id
+    }, {
+      type: Challenge.third.challenge_type.name,
+      id: Challenge.third.id
+    }, {
+      type: Challenge.find(12).challenge_type.name,
+      id: Challenge.find(12).id
+    }
+  ],
+  tags: ["Economics", "Crash Course"]
+})
+
 # course on computers
 computers_course = Course.create({
   title: "Compute This",
@@ -156,6 +204,9 @@ computers_course = Course.create({
   image_url: "http://placehold.it/600x400?text=Compute%20This",
   flow: [
     {
+      type: Challenge.find(11).challenge_type.name,
+      id: Challenge.find(11).id
+    }, {
       type: Challenge.fifth.challenge_type.name,
       id: Challenge.fifth.id
     }, {
@@ -170,6 +221,9 @@ computers_course = Course.create({
     }, {
       type: Challenge.find(9).challenge_type.name,
       id: Challenge.find(9).id
+    }, {
+      type: Challenge.find(13).challenge_type.name,
+      id: Challenge.find(13).id
     }
   ],
   tags: ["Tech", "Crash Course"]
