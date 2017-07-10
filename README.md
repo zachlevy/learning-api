@@ -32,6 +32,11 @@ The challenge response model has an attribute `input` which contains an `jsonb` 
 ```
 The input will object will be resaved with a result object property for each object to be analyzed.
 
+### Controllers
+#### Courses
+##### /courses
+`ids` takes a csv of course ids to return. example `?ids="1,2,3"` and returns only those courses.
+
 ### Operations
 
 #### Development
