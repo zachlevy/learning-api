@@ -4,6 +4,7 @@ class CoursesController < ApplicationController
   # GET /courses
   def index
     @courses = Course.all
+    @courses = @courses.where(id: params[:ids]) unless params[:ids].split(",").nil?
 
     render json: @courses
   end
