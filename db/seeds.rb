@@ -51,6 +51,14 @@ simple_start = ChallengeType.create({
   }
 })
 
+simple_signup = ChallengeType.create({
+  name: "simple_signup",
+  template_data: {
+    callToActionText: "What's your email?",
+    buttonText: ""
+  }
+})
+
 # videos for economics
 economics_youtube_videos = Challenge.create([
   {
@@ -168,6 +176,17 @@ start_end_challenges = Challenge.create([
   }
 ])
 
+signup_challenges = Challenge.create([
+  {
+    description: "Near end of course",
+    challenge_type: simple_signup,
+    body: {
+      callToActionText: "Would you like to be notified about more courses?",
+      buttonText: "Sure"
+    }
+  }
+])
+
 # course on death and taxes
 course_death_and_taxes = Course.create({
   title: "Except Death and Taxes",
@@ -190,6 +209,9 @@ course_death_and_taxes = Course.create({
       type: Challenge.third.challenge_type.name,
       id: Challenge.third.id
     }, {
+      type: Challenge.find(14).challenge_type.name,
+      id: Challenge.find(14).id
+    }, {
       type: Challenge.find(12).challenge_type.name,
       id: Challenge.find(12).id
     }
@@ -210,17 +232,20 @@ computers_course = Course.create({
       type: Challenge.fifth.challenge_type.name,
       id: Challenge.fifth.id
     }, {
-      type: Challenge.find(6).challenge_type.name,
-      id: Challenge.find(6).id
-    }, {
       type: Challenge.find(8).challenge_type.name,
       id: Challenge.find(8).id
+    }, {
+      type: Challenge.find(6).challenge_type.name,
+      id: Challenge.find(6).id
     }, {
       type: Challenge.find(7).challenge_type.name,
       id: Challenge.find(7).id
     }, {
       type: Challenge.find(9).challenge_type.name,
       id: Challenge.find(9).id
+    }, {
+      type: Challenge.find(14).challenge_type.name,
+      id: Challenge.find(14).id
     }, {
       type: Challenge.find(13).challenge_type.name,
       id: Challenge.find(13).id
