@@ -62,7 +62,7 @@ simple_signup = ChallengeType.create({
 # videos for economics
 economics_youtube_videos = Challenge.create([
   {
-    description: "The Economics of Death",
+    description: "Watch the video on The Economics of Death",
     challenge_type: youtube_video,
     body: {
       youtube_id: "AecowUb79Xk",
@@ -70,7 +70,7 @@ economics_youtube_videos = Challenge.create([
     }
   },
   {
-    description: "The Economics of Taxes",
+    description: "Watch the video on The Economics of Taxes",
     challenge_type: youtube_video,
     body: {
       youtube_id: "7Qtr_vA3Prw",
@@ -82,7 +82,7 @@ economics_youtube_videos = Challenge.create([
 # challenges for death and taxes
 challenges = Challenge.create([
   {
-    description: "Death question",
+    description: "Answer the Death question",
     challenge_type: simple_q_and_a,
     body: {
       question: "Can you avoid death?",
@@ -90,7 +90,7 @@ challenges = Challenge.create([
       max_length: 140
     }
   },{
-    description: "Taxes question",
+    description: "Answer the Taxes question",
     challenge_type: simple_q_and_a,
     body: {
       question: "Can you avoid taxes?",
@@ -103,7 +103,7 @@ challenges = Challenge.create([
 # challenges for computers
 challenges = Challenge.create([
   {
-    description: "Ram Question",
+    description: "Answer the Ram Question",
     challenge_type: simple_q_and_a,
     body: {
       question: "How many KB in a MB?",
@@ -111,7 +111,7 @@ challenges = Challenge.create([
       max_length: 140
     }
   },{
-    description: "CPU Question",
+    description: "Answer the CPU Question",
     challenge_type: simple_q_and_a,
     body: {
       question: "What are CPUs made of?",
@@ -124,21 +124,21 @@ challenges = Challenge.create([
 # computers youtube videos
 computers_youtube_videos = Challenge.create([
   {
-    description: "Registers and RAM",
+    description: "Watch the video on Registers and RAM",
     challenge_type: youtube_video,
     body: {
       youtube_id: "fpnE6UAfbtU",
       est_duration: 736
     }
   },{
-    description: "The Central Processing Unit",
+    description: "Watch the video on The Central Processing Unit",
     challenge_type: youtube_video,
     body: {
       youtube_id: "FZGugFqdr60",
       est_duration: 697
     }
   },{
-    description: "Battle of Stamford Bridge",
+    description: "Read the article and takes notes on Battle of Stamford Bridge",
     challenge_type: wikipedia_notes,
     body: {
       embed_url: "https://en.m.wikipedia.org/wiki/Battle_of_Stamford_Bridge",
@@ -150,25 +150,25 @@ computers_youtube_videos = Challenge.create([
 
 start_end_challenges = Challenge.create([
   {
-    description: "Start of Economics course",
+    description: "Press Start to Begin The Course",
     challenge_type: simple_start,
     body: {
 
     }
   }, {
-    description: "Start of Computers course",
+    description: "Press Start to Begin The Course",
     challenge_type: simple_start,
     body: {
 
     }
   }, {
-    description: "End of Economics Course",
+    description: "You've react the end of the Economics Course!",
     challenge_type: suggestion_end,
     body: {
       courses: [2]
     }
   }, {
-    description: "End of Computers Course",
+    description: "You've react the end of the Computers Course!",
     challenge_type: suggestion_end,
     body: {
       courses: [1]
@@ -178,7 +178,7 @@ start_end_challenges = Challenge.create([
 
 signup_challenges = Challenge.create([
   {
-    description: "Near end of course",
+    description: "Signup",
     challenge_type: simple_signup,
     body: {
       callToActionText: "Would you like to be notified about more courses?",

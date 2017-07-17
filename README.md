@@ -10,6 +10,8 @@ the challenge model has an attribute `body` which is a `jsonb` with the followin
 }
 ```
 
+A challenge `description` is a full sentence of instructions.
+
 #### Course
 The course model has an attribute `flow` which is a `jsonb` array of all the content in order.
 
