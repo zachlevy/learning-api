@@ -13,6 +13,15 @@ the challenge model has an attribute `body` which is a `jsonb` with the followin
 A challenge `description` is a full sentence of instructions.
 
 #### Course
+The course model has an attribute `ui` which is a `jsonb` object with the fields being used in for the user interface. Example object below.
+```
+{
+  primaryColor: "#333333",
+  secondaryColor: "#999999",
+  icon: "circle"
+}
+```
+
 The course model has an attribute `flow` which is a `jsonb` array of all the content in order.
 
 ##### Flow Object Format
@@ -22,6 +31,7 @@ The course model has an attribute `flow` which is a `jsonb` array of all the con
   id: 123
 }
 ```
+
 #### Challenge Response
 The challenge response model has an attribute `input` which contains an `jsonb` object with an `analysis` property that specifies the approach to analyze the input. The `text` property is the input text.
 

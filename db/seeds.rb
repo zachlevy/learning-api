@@ -192,7 +192,11 @@ course_death_and_taxes = Course.create({
   title: "Except Death and Taxes",
   description: "Economics. It is said that nothing is certain in life, except death and taxes.",
   image_url: "http://placehold.it/600x400?text=Death%20Taxes",
-  icon: "bank",
+  ui: {
+    primaryColor: "#34e89e",
+    secondaryColor: "#0f3443",
+    icon: "bank"
+  },
   flow: [
     {
       type: Challenge.find(10).challenge_type.name,
@@ -225,7 +229,11 @@ computers_course = Course.create({
   title: "Compute This",
   description: "Computers have taken over the world.",
   image_url: "http://placehold.it/600x400?text=Compute%20This",
-  icon: "microchip",
+  ui: {
+    primaryColor: "#000046",
+    secondaryColor: "#1CB5E0",
+    icon: "microchip"
+  },
   flow: [
     {
       type: Challenge.find(11).challenge_type.name,
