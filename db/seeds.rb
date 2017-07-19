@@ -195,7 +195,8 @@ course_death_and_taxes = Course.create({
   ui: {
     primaryColor: "#34e89e",
     secondaryColor: "#0f3443",
-    icon: "bank"
+    icon: "bank",
+    subtle: "hex"
   },
   flow: [
     {
@@ -232,7 +233,8 @@ computers_course = Course.create({
   ui: {
     primaryColor: "#000046",
     secondaryColor: "#1CB5E0",
-    icon: "microchip"
+    icon: "microchip",
+    subtle: "diamond"
   },
   flow: [
     {
