@@ -30,6 +30,16 @@ module LearningApi
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
+    # reverse proxy
+    config.middleware.insert(0, Rack::ReverseProxy) do
+      reverse_proxy_options preserve_host: true
+      reverse_proxy /^\/lyt\/mp(\/?.*)$/, 'http://api.mixpanel.com/$1' # mixpanel
+      reverse_proxy /^\/lyt\/ga(\/?.*)$/, 'https://www.google-analytics.com/$1' # google analytics
+    end
+
+
+
+
     # cors, allow requests from any domain
     config.middleware.use Rack::Cors do
       allow do

@@ -23,6 +23,8 @@ gem 'puma', '~> 3.7'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
+# reverse proxy
+gem "rack-reverse-proxy", require: "rack/reverse_proxy"
 
 # documentation
 gem 'annotate'
