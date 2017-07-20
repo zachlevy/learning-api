@@ -11,9 +11,9 @@ simple_q_and_a = ChallengeType.create({
   name: "simple_q_and_a",
   template_data: {
     question: "Question?",
-    answer: "Answer.",
+    answer: "Answer.", # could also be an array, which any value is correct
     max_length: 140,
-    answer_type: "regex",
+    answer_type: "regex", # leave null for everything else
     dictionary: [
       {
         "term": "Triumvirate",
@@ -298,6 +298,15 @@ cato_challenges = Challenge.create([
           "link": "https://en.wikipedia.org/wiki/Triumvirate"
         }
       ]
+    }
+  }, {
+    description: "Answer with the manor in which Cato died",
+    challenge_type: simple_q_and_a,
+    body: {
+      question: "How did Cato die?",
+      answer: ["suicide", "himself", "own life"],
+      max_length: 64,
+      answer_type: "regex"
     }
   }
 ])
