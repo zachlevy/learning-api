@@ -12,7 +12,15 @@ simple_q_and_a = ChallengeType.create({
   template_data: {
     question: "Question?",
     answer: "Answer.",
-    max_length: 140
+    max_length: 140,
+    answer_type: "regex",
+    dictionary: [
+      {
+        "term": "Triumvirate",
+        "definition": "A political alliance between Caesar, Pompey, and Crassus",
+        "link": "https://en.wikipedia.org/wiki/First_Triumvirate"
+      }
+    ]
   }
 })
 
