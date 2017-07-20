@@ -280,3 +280,50 @@ user1 = User.create({
   password_confirmation: "password123",
   confirmed_at: DateTime.now
 })
+
+# challenges for the cato course
+cato_challenges = Challenge.create([
+  {
+    description: "Include the person's last name spelled correctly",
+    challenge_type: simple_q_and_a,
+    body: {
+      question: "After the Triumvirate was broken, who had Cato allied himself with?",
+      answer: "Pompey",
+      max_length: 64,
+      answer_type: "regex",
+      dictionary: [
+        {
+          "term": "Triumvirate",
+          "definition": "A unofficial political alliance between 3 powerful men.",
+          "link": "https://en.wikipedia.org/wiki/Triumvirate"
+        }
+      ]
+    }
+  }
+])
+
+# Cato Course
+# https://docs.google.com/document/d/1Y5ssZT4t6x0oz1x6h-N5tcdOiJtHBKfM2WogWxcceYo/edit
+cato_course = Course.create({
+  title: "Who was Cato?",
+  description: "Legendary orator, incorruptible politician, and stark opponent of the most powerful man in the world.",
+  image_url: "http://placehold.it/600x400?text=Cato",
+  ui: {
+    primaryColor: "#DA22FF",
+    secondaryColor: "#9733EE",
+    icon: "comment",
+    subtle: "roman-tile"
+  },
+  flow: [
+    {
+      type: Challenge.find(11).challenge_type.name,
+      id: Challenge.find(11).id
+    }
+  ] + cato_challenges.map do |c|
+    {
+      type: c.challenge_type.name,
+      id: c.id
+    }
+  end,
+  tags: ["History", "Ancient Rome", "Famous People"]
+})
