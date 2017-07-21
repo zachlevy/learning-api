@@ -34,7 +34,9 @@ youtube_video = ChallengeType.create({
   name: "youtube_video",
   template_data: {
     youtube_id: "7Qtr_vA3Prw",
-    est_duration: 748
+    est_duration: 748,
+    start_seconds: 1,
+    end_seconds: 359
   }
 })
 
@@ -289,6 +291,29 @@ user1 = User.create({
 # challenges for the cato course
 cato_challenges = Challenge.create([
   {
+    description: "Take some notes on Cato",
+    challenge_type: wikipedia_notes,
+    body: {
+      embed_url: "https://en.m.wikipedia.org/wiki/Cato_the_Younger",
+      est_duration: 600,
+      max_length: 300
+    }
+  }, {
+    description: "Watch the video of Cato speaking",
+    challenge_type: youtube_video,
+    body: {
+      youtube_id: "8LQBHlOvaoY",
+      est_duration: 117
+    }
+  }, {
+    description: "Watch the video on Cato's term as Tribune of the Plebes",
+    challenge_type: youtube_video,
+    body: {
+      youtube_id: "kOiyt63_1_U",
+      est_duration: 345,
+      start_seconds: 23
+    }
+  }, {
     description: "Include the person's last name spelled correctly",
     challenge_type: simple_q_and_a,
     body: {
