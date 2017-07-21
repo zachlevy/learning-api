@@ -308,6 +308,26 @@ cato_challenges = Challenge.create([
       max_length: 64,
       answer_type: "regex"
     }
+  }, {
+    description: "Spell correctly the name of the tool",
+    challenge_type: simple_q_and_a,
+    body: {
+      question: "What political device did Cato use to force Caesar to choose between a Triumph and running for Consul?",
+      answer: "filibuster",
+      max_length: 32,
+      answer_type: "regex",
+      dictionary: [
+        {
+          "term": "Triumph",
+          "definition": "A ceremony to celebrate the success of a military victory. It was a big deal.",
+          "link": "https://en.wikipedia.org/wiki/Roman_triumph"
+        }, {
+          "term": "Consul",
+          "definition": "The highest political office in the Roman Republic. Comparable to a modern day President.",
+          "link": "https://en.wikipedia.org/wiki/Roman_consul"
+        }
+      ]
+    }
   }
 ])
 
