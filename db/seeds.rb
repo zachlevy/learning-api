@@ -342,6 +342,22 @@ cato_challenges = Challenge.create([
       max_length: 32,
       answer_type: "regex"
     }
+  }, {
+    description: "Answer the question with some keywords",
+    challenge_type: simple_q_and_a,
+    body: {
+      question: "How would you characterize Cato's command of his legion while elected Military Tribune?",
+      answer: ["strict", "love"],
+      max_length: 128,
+      answer_type: "regex",
+      dictionary: [
+        {
+          "term": "Military Tribune",
+          "definition": "An elected military officer who was born of high class.",
+          "link": "https://en.wikipedia.org/wiki/Military_tribune"
+        }
+      ]
+    }
   }
 ])
 
