@@ -16,14 +16,14 @@ simple_q_and_a = ChallengeType.create({
   name: "simple_q_and_a",
   template_data: {
     question: "Question?",
-    answer: "Answer.", # could also be an array, which any value is correct
+    answer: "Answer.", # could also be an array, which any value is correct. Make a space " " for open ended questions.
     max_length: 140,
     answer_type: "regex", # leave null for everything else
     dictionary: [
       {
-        "term": "Triumvirate",
-        "definition": "A political alliance between Caesar, Pompey, and Crassus",
-        "link": "https://en.wikipedia.org/wiki/First_Triumvirate"
+        term: "Triumvirate",
+        definition: "A political alliance between Caesar, Pompey, and Crassus",
+        link: "https://en.wikipedia.org/wiki/First_Triumvirate"
       }
     ]
   }
@@ -314,6 +314,22 @@ cato_challenges = Challenge.create([
       start_seconds: 23
     }
   }, {
+    description: "Answer the open ended question.",
+    challenge_type: simple_q_and_a,
+    body: {
+      question: "Why did the conservatives in the senate approve a 4x increase in the Grain Dole?",
+      answer: " ",
+      max_length: 128,
+      answer_type: "regex",
+      dictionary: [
+        {
+          term: "Grain Dole",
+          definition: "The Grain Dole was grain given to the poor as a form of welfare.",
+          link: "https://en.wikipedia.org/wiki/Cura_Annonae"
+        }
+      ]
+    }
+  }, {
     description: "Include the person's last name spelled correctly",
     challenge_type: simple_q_and_a,
     body: {
@@ -323,9 +339,9 @@ cato_challenges = Challenge.create([
       answer_type: "regex",
       dictionary: [
         {
-          "term": "Triumvirate",
-          "definition": "A unofficial political alliance between 3 powerful men.",
-          "link": "https://en.wikipedia.org/wiki/Triumvirate"
+          term: "Triumvirate",
+          definition: "A unofficial political alliance between 3 powerful men.",
+          link: "https://en.wikipedia.org/wiki/Triumvirate"
         }
       ]
     }
@@ -348,13 +364,13 @@ cato_challenges = Challenge.create([
       answer_type: "regex",
       dictionary: [
         {
-          "term": "Triumph",
-          "definition": "A ceremony to celebrate the success of a military victory. It was a big deal.",
-          "link": "https://en.wikipedia.org/wiki/Roman_triumph"
+          term: "Triumph",
+          definition: "A ceremony to celebrate the success of a military victory. It was a big deal.",
+          link: "https://en.wikipedia.org/wiki/Roman_triumph"
         }, {
-          "term": "Consul",
-          "definition": "The highest political office in the Roman Republic. Comparable to a modern day President.",
-          "link": "https://en.wikipedia.org/wiki/Roman_consul"
+          term: "Consul",
+          definition: "The highest political office in the Roman Republic. Comparable to a modern day President.",
+          link: "https://en.wikipedia.org/wiki/Roman_consul"
         }
       ]
     }
@@ -377,9 +393,9 @@ cato_challenges = Challenge.create([
       answer_type: "regex",
       dictionary: [
         {
-          "term": "Military Tribune",
-          "definition": "An elected military officer who was born of high class.",
-          "link": "https://en.wikipedia.org/wiki/Military_tribune"
+          term: "Military Tribune",
+          definition: "An elected military officer who was born of high class.",
+          link: "https://en.wikipedia.org/wiki/Military_tribune"
         }
       ]
     }
