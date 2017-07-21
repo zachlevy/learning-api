@@ -318,7 +318,7 @@ cato_challenges = Challenge.create([
     challenge_type: simple_q_and_a,
     body: {
       question: "Why did the conservatives in the senate approve a 4x increase in the Grain Dole?",
-      answer: " ",
+      answer: " ", # open ended
       max_length: 128,
       answer_type: "regex",
       dictionary: [
@@ -346,7 +346,7 @@ cato_challenges = Challenge.create([
       ]
     }
   }, {
-    description: "Answer with the manor in which Cato died",
+    description: "How did Cato die?",
     challenge_type: simple_q_and_a,
     body: {
       question: "How did Cato die?",
@@ -398,6 +398,15 @@ cato_challenges = Challenge.create([
           link: "https://en.wikipedia.org/wiki/Military_tribune"
         }
       ]
+    }
+  }, {
+    description: "Answer the open ended question about Cato's death",
+    challenge_type: simple_q_and_a,
+    body: {
+      question: "Why did Cato commit suicide?",
+      answer: " ", # open ended
+      max_length: 128,
+      answer_type: "regex"
     }
   }
 ])
