@@ -6,6 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# affirmative terms
+affirmatives = ["aye", "yea", "yeah", "yep", "yes"]
+# negative terms
+negatives = ["nay", "no", "nope", "noway", "nah"]
+
 # simple Q and A challenge type
 simple_q_and_a = ChallengeType.create({
   name: "simple_q_and_a",
@@ -327,6 +332,15 @@ cato_challenges = Challenge.create([
           "link": "https://en.wikipedia.org/wiki/Roman_consul"
         }
       ]
+    }
+  }, {
+    description: "Answer with an affirmative or negative",
+    challenge_type: simple_q_and_a,
+    body: {
+      question: "Was Cato a supporter of Ceasar?",
+      answer: negatives,
+      max_length: 32,
+      answer_type: "regex"
     }
   }
 ])
