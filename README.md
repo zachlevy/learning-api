@@ -71,6 +71,10 @@ Reset database with
 * `$ heroku run rake db:migrate`
 * `$ heroku run rake db:seed`
 
+OR
+
+`$ heroku pg:reset DATABASE_URL --confirm learning-api-production && heroku run rake db:migrate && heroku run rake db:seed`
+
 #### Testing
 
 `$ bundle exec rspec`
