@@ -16,9 +16,26 @@ simple_q_and_a = ChallengeType.create({
   name: "simple_q_and_a",
   template_data: {
     question: "Question?",
-    answer: "Answer.", # could also be an array, which any value is correct. Make a space " " for open ended questions.
+    answer: "Answer.", # could also be an array, which any value is correct.
     max_length: 140,
     answer_type: "regex", # leave null for everything else
+    dictionary: [
+      {
+        term: "Triumvirate",
+        definition: "A political alliance between Caesar, Pompey, and Crassus",
+        link: "https://en.wikipedia.org/wiki/First_Triumvirate"
+      }
+    ]
+  }
+})
+
+# open ended question type
+open_ended_q = ChallengeType.create({
+  name: "open_ended_q",
+  template_data: {
+    question: "Question?",
+    min_length: 10,
+    max_length: 140,
     dictionary: [
       {
         term: "Triumvirate",
@@ -315,12 +332,11 @@ cato_challenges = Challenge.create([
     }
   }, {
     description: "Answer the open ended question.",
-    challenge_type: simple_q_and_a,
+    challenge_type: open_ended_q,
     body: {
       question: "Why did the conservatives in the senate approve a 4x increase in the Grain Dole?",
-      answer: " ", # open ended
       max_length: 128,
-      answer_type: "regex",
+      min_length: 16,
       dictionary: [
         {
           term: "Grain Dole",
@@ -401,12 +417,11 @@ cato_challenges = Challenge.create([
     }
   }, {
     description: "Answer the open ended question about Cato's death",
-    challenge_type: simple_q_and_a,
+    challenge_type: open_ended_q,
     body: {
       question: "Why did Cato commit suicide?",
-      answer: " ", # open ended
       max_length: 128,
-      answer_type: "regex"
+      min_length: 16
     }
   }
 ])
