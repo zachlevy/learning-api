@@ -312,6 +312,9 @@ cato_challenges = Challenge.create([
     challenge_type: wikipedia_notes,
     body: {
       embed_url: "https://en.m.wikipedia.org/wiki/Cato_the_Younger",
+      instructions: [
+        "Read the section on The First Triumvirate"
+      ],
       est_duration: 600,
       max_length: 300
     }
