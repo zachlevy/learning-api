@@ -219,84 +219,84 @@ signup_challenges = Challenge.create([
   }
 ])
 
-# course on death and taxes
-course_death_and_taxes = Course.create({
-  title: "Except Death and Taxes",
-  description: "Economics. It is said that nothing is certain in life, except death and taxes.",
-  image_url: "http://placehold.it/600x400?text=Death%20Taxes",
-  ui: {
-    primaryColor: "#34e89e",
-    secondaryColor: "#0f3443",
-    icon: "bank",
-    subtle: "hex"
-  },
-  flow: [
-    {
-      type: Challenge.find(10).challenge_type.name,
-      id: Challenge.find(10).id
-    }, {
-      type: Challenge.first.challenge_type.name,
-      id: Challenge.first.id
-    }, {
-      type: Challenge.second.challenge_type.name,
-      id: Challenge.second.id
-    }, {
-      type: Challenge.fourth.challenge_type.name,
-      id: Challenge.fourth.id
-    }, {
-      type: Challenge.third.challenge_type.name,
-      id: Challenge.third.id
-    }, {
-      type: Challenge.find(14).challenge_type.name,
-      id: Challenge.find(14).id
-    }, {
-      type: Challenge.find(12).challenge_type.name,
-      id: Challenge.find(12).id
-    }
-  ],
-  tags: ["Economics", "Crash Course"]
-})
-
-# course on computers
-computers_course = Course.create({
-  title: "Compute This",
-  description: "Computers have taken over the world.",
-  image_url: "http://placehold.it/600x400?text=Compute%20This",
-  ui: {
-    primaryColor: "#000046",
-    secondaryColor: "#1CB5E0",
-    icon: "microchip",
-    subtle: "diamond"
-  },
-  flow: [
-    {
-      type: Challenge.find(11).challenge_type.name,
-      id: Challenge.find(11).id
-    }, {
-      type: Challenge.fifth.challenge_type.name,
-      id: Challenge.fifth.id
-    }, {
-      type: Challenge.find(8).challenge_type.name,
-      id: Challenge.find(8).id
-    }, {
-      type: Challenge.find(6).challenge_type.name,
-      id: Challenge.find(6).id
-    }, {
-      type: Challenge.find(7).challenge_type.name,
-      id: Challenge.find(7).id
-    }, {
-      type: Challenge.find(9).challenge_type.name,
-      id: Challenge.find(9).id
-    }, {
-      type: Challenge.find(14).challenge_type.name,
-      id: Challenge.find(14).id
-    }, {
-      type: Challenge.find(13).challenge_type.name,
-      id: Challenge.find(13).id
-    }
-  ],
-  tags: ["Tech", "Crash Course"]
-})
+# # course on death and taxes
+# course_death_and_taxes = Course.create({
+#   title: "Except Death and Taxes",
+#   description: "Economics. It is said that nothing is certain in life, except death and taxes.",
+#   image_url: "http://placehold.it/600x400?text=Death%20Taxes",
+#   ui: {
+#     primaryColor: "#34e89e",
+#     secondaryColor: "#0f3443",
+#     icon: "bank",
+#     subtle: "hex"
+#   },
+#   flow: [
+#     {
+#       type: Challenge.find(10).challenge_type.name,
+#       id: Challenge.find(10).id
+#     }, {
+#       type: Challenge.first.challenge_type.name,
+#       id: Challenge.first.id
+#     }, {
+#       type: Challenge.second.challenge_type.name,
+#       id: Challenge.second.id
+#     }, {
+#       type: Challenge.fourth.challenge_type.name,
+#       id: Challenge.fourth.id
+#     }, {
+#       type: Challenge.third.challenge_type.name,
+#       id: Challenge.third.id
+#     }, {
+#       type: Challenge.find(14).challenge_type.name,
+#       id: Challenge.find(14).id
+#     }, {
+#       type: Challenge.find(12).challenge_type.name,
+#       id: Challenge.find(12).id
+#     }
+#   ],
+#   tags: ["Economics", "Crash Course"]
+# })
+#
+# # course on computers
+# computers_course = Course.create({
+#   title: "Compute This",
+#   description: "Computers have taken over the world.",
+#   image_url: "http://placehold.it/600x400?text=Compute%20This",
+#   ui: {
+#     primaryColor: "#000046",
+#     secondaryColor: "#1CB5E0",
+#     icon: "microchip",
+#     subtle: "diamond"
+#   },
+#   flow: [
+#     {
+#       type: Challenge.find(11).challenge_type.name,
+#       id: Challenge.find(11).id
+#     }, {
+#       type: Challenge.fifth.challenge_type.name,
+#       id: Challenge.fifth.id
+#     }, {
+#       type: Challenge.find(8).challenge_type.name,
+#       id: Challenge.find(8).id
+#     }, {
+#       type: Challenge.find(6).challenge_type.name,
+#       id: Challenge.find(6).id
+#     }, {
+#       type: Challenge.find(7).challenge_type.name,
+#       id: Challenge.find(7).id
+#     }, {
+#       type: Challenge.find(9).challenge_type.name,
+#       id: Challenge.find(9).id
+#     }, {
+#       type: Challenge.find(14).challenge_type.name,
+#       id: Challenge.find(14).id
+#     }, {
+#       type: Challenge.find(13).challenge_type.name,
+#       id: Challenge.find(13).id
+#     }
+#   ],
+#   tags: ["Tech", "Crash Course"]
+# })
 
 user1 = User.create({
   email: "z@z.com",
@@ -308,30 +308,64 @@ user1 = User.create({
 # challenges for the cato course
 cato_challenges = Challenge.create([
   {
-    description: "Take some notes on Cato",
+    description: "Take some notes on Cato's Early Life",
     challenge_type: wikipedia_notes,
     body: {
       embed_url: "https://en.m.wikipedia.org/wiki/Cato_the_Younger",
       instructions: [
-        "Read the section on The First Triumvirate"
+        "Read the stories on Cato's Early Life",
+        "Take some notes on his character"
       ],
-      est_duration: 600,
-      max_length: 300
+      est_duration: 210,
+      max_length: 140
     }
   }, {
-    description: "Watch the video of Cato speaking",
-    challenge_type: youtube_video,
+    description: "Answer the question with some keywords",
+    challenge_type: simple_q_and_a,
     body: {
-      youtube_id: "8LQBHlOvaoY",
-      est_duration: 117
+      question: "Would you say that Cato lacked conviction as a child?",
+      answer: negatives,
+      max_length: 16,
+      answer_type: "regex",
+      dictionary: []
+    }
+  }, {
+    description: "Take some notes on Cato's experience as Military Tribune",
+    challenge_type: wikipedia_notes,
+    body: {
+      embed_url: "https://en.m.wikipedia.org/wiki/Cato_the_Younger",
+      instructions: [
+        "Go to the section on Cato's Political Development",
+        "Read the paragraph about his time as Military Tribune near the bottom of the section",
+        "Take some notes on his character"
+      ],
+      est_duration: 120,
+      max_length: 140
+    }
+  }, {
+    description: "Answer the question with some keywords",
+    challenge_type: simple_q_and_a,
+    body: {
+      question: "How would you characterize Cato's command of his legion while elected Military Tribune?",
+      answer: ["strict", "love"],
+      max_length: 128,
+      answer_type: "regex",
+      dictionary: [
+        {
+          term: "Military Tribune",
+          definition: "An elected military officer who was born of high class.",
+          link: "https://en.wikipedia.org/wiki/Military_tribune"
+        }
+      ]
     }
   }, {
     description: "Watch the video on Cato's term as Tribune of the Plebes",
     challenge_type: youtube_video,
     body: {
       youtube_id: "kOiyt63_1_U",
-      est_duration: 345,
-      start_seconds: 23
+      est_duration: 179,
+      start_seconds: 23,
+      end_seconds: 202
     }
   }, {
     description: "Answer the open ended question.",
@@ -349,29 +383,33 @@ cato_challenges = Challenge.create([
       ]
     }
   }, {
-    description: "Include the person's last name spelled correctly",
-    challenge_type: simple_q_and_a,
+    description: "Watch the video of Cato speaking",
+    challenge_type: youtube_video,
     body: {
-      question: "After the Triumvirate was broken, who had Cato allied himself with?",
-      answer: "Pompey",
-      max_length: 64,
-      answer_type: "regex",
-      dictionary: [
-        {
-          term: "Triumvirate",
-          definition: "A unofficial political alliance between 3 powerful men.",
-          link: "https://en.wikipedia.org/wiki/Triumvirate"
-        }
-      ]
+      youtube_id: "8LQBHlOvaoY",
+      est_duration: 109,
+      end_seconds: 109,
     }
   }, {
-    description: "How did Cato die?",
+    description: "Answer with an affirmative or negative",
     challenge_type: simple_q_and_a,
     body: {
-      question: "How did Cato die?",
-      answer: ["suicide", "himself", "own life"],
-      max_length: 64,
+      question: "Was Cato a supporter of Ceasar?",
+      answer: negatives,
+      max_length: 32,
       answer_type: "regex"
+    }
+  }, {
+    description: "Take some notes on Cato's involvement with The First Triumvirate",
+    challenge_type: wikipedia_notes,
+    body: {
+      embed_url: "https://en.m.wikipedia.org/wiki/Cato_the_Younger",
+      instructions: [
+        "Read the section on The First Triumvirate",
+        "Take some notes of how Cato opposed the Triumvirate (Triumvirate was an alliance between Caesar, Pompey, and Crassus)"
+      ],
+      est_duration: 240,
+      max_length: 140
     }
   }, {
     description: "Spell correctly the name of the tool",
@@ -393,30 +431,43 @@ cato_challenges = Challenge.create([
         }
       ]
     }
-  }, {
-    description: "Answer with an affirmative or negative",
-    challenge_type: simple_q_and_a,
+  },
+  # {
+  #   description: "Include the person's last name spelled correctly",
+  #   challenge_type: simple_q_and_a,
+  #   body: {
+  #     question: "After the Triumvirate was broken, who had Cato allied himself with?",
+  #     answer: "Pompey",
+  #     max_length: 64,
+  #     answer_type: "regex",
+  #     dictionary: [
+  #       {
+  #         term: "Triumvirate",
+  #         definition: "A unofficial political alliance between Caesar, Pompey, and Crassus.",
+  #         link: "https://en.wikipedia.org/wiki/Triumvirate"
+  #       }
+  #     ]
+  #   }
+  # },
+  {
+    description: "Take some notes on Cato's Death",
+    challenge_type: wikipedia_notes,
     body: {
-      question: "Was Cato a supporter of Ceasar?",
-      answer: negatives,
-      max_length: 32,
-      answer_type: "regex"
+      embed_url: "https://en.m.wikipedia.org/wiki/Cato_the_Younger",
+      instructions: [
+        "Read the section on Cato's Death"
+      ],
+      est_duration: 120,
+      max_length: 140
     }
   }, {
-    description: "Answer the question with some keywords",
+    description: "How did Cato die?",
     challenge_type: simple_q_and_a,
     body: {
-      question: "How would you characterize Cato's command of his legion while elected Military Tribune?",
-      answer: ["strict", "love"],
-      max_length: 128,
-      answer_type: "regex",
-      dictionary: [
-        {
-          term: "Military Tribune",
-          definition: "An elected military officer who was born of high class.",
-          link: "https://en.wikipedia.org/wiki/Military_tribune"
-        }
-      ]
+      question: "How did Cato die?",
+      answer: ["suicide", "himself", "own life"],
+      max_length: 64,
+      answer_type: "regex"
     }
   }, {
     description: "Answer the open ended question about Cato's death",
@@ -425,6 +476,13 @@ cato_challenges = Challenge.create([
       question: "Why did Cato commit suicide?",
       max_length: 128,
       min_length: 16
+    }
+  }, {
+    description: "Enter your email to get notified when we make more Mini Courses to learn",
+    challenge_type: simple_signup,
+    body: {
+      callToActionText: "Would like to learn about other historical figures?",
+      buttonText: "Let me know"
     }
   }
 ])
