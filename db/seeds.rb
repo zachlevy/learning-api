@@ -417,7 +417,7 @@ cato_challenges = Challenge.create([
     challenge_type: simple_q_and_a,
     body: {
       question: "What political device did Cato use to force Caesar to choose between a Triumph and running for Consul?",
-      answer: "filibuster",
+      answer: ["filibuster", "fillibuster"],
       max_length: 32,
       answer_type: "regex",
       dictionary: [
