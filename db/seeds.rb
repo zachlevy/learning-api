@@ -313,7 +313,8 @@ cato_challenges = Challenge.create([
     body: {
       embed_url: "https://en.m.wikipedia.org/wiki/Cato_the_Younger",
       instructions: [
-        "Read the stories on Cato's Early Life",
+        "Go to the Early Life section",
+        "Read the stories about it (skip the first paragraph)",
         "Take some notes on his character"
       ],
       est_duration: 210,
