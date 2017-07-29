@@ -61,7 +61,13 @@ youtube_video = ChallengeType.create({
 wikipedia_notes = ChallengeType.create({
   name: "wikipedia_notes",
   template_data: {
-    embed_url: "https://en.m.wikipedia.org/wiki/Battle_of_Stamford_Bridge",
+    embed_url: "/wiki/Battle_of_Stamford_Bridge",
+    highlights: [
+      {
+        "title": "Death", # this the title of a section
+        "children": [0, 1, 2] # this is the paragraph index or otherwise children index
+      }
+    ],
     est_duration: 601,
     max_length: 140
   }
@@ -311,7 +317,13 @@ cato_challenges = Challenge.create([
     description: "Take some notes on Cato's Early Life",
     challenge_type: wikipedia_notes,
     body: {
-      embed_url: "https://en.m.wikipedia.org/wiki/Cato_the_Younger",
+      embed_url: "/wiki/Cato_the_Younger",
+      highlights: [
+        {
+          "title": "Early life",
+          "children": [1, 2, 3, 4]
+        }
+      ],
       instructions: [
         "Go to the Early Life section",
         "Read the stories about it (skip the first paragraph)",
@@ -334,7 +346,13 @@ cato_challenges = Challenge.create([
     description: "Take some notes on Cato's experience as Military Tribune",
     challenge_type: wikipedia_notes,
     body: {
-      embed_url: "https://en.m.wikipedia.org/wiki/Cato_the_Younger",
+      embed_url: "/wiki/Cato_the_Younger",
+      highlights: [
+        {
+          "title": "Political development",
+          "children": [3]
+        }
+      ],
       instructions: [
         "Go to the section on Cato's Political Development",
         "Read the paragraph about his time as Military Tribune near the bottom of the section",
@@ -404,7 +422,13 @@ cato_challenges = Challenge.create([
     description: "Take some notes on Cato's involvement with The First Triumvirate",
     challenge_type: wikipedia_notes,
     body: {
-      embed_url: "https://en.m.wikipedia.org/wiki/Cato_the_Younger",
+      embed_url: "/wiki/Cato_the_Younger",
+      highlights: [
+        {
+          "title": "The First Triumvirate",
+          "children": "all"
+        }
+      ],
       instructions: [
         "Read the section on The First Triumvirate",
         "Take some notes of how Cato opposed the Triumvirate (Triumvirate was an alliance between Caesar, Pompey, and Crassus)"
@@ -454,7 +478,13 @@ cato_challenges = Challenge.create([
     description: "Take some notes on Cato's Death",
     challenge_type: wikipedia_notes,
     body: {
-      embed_url: "https://en.m.wikipedia.org/wiki/Cato_the_Younger",
+      embed_url: "/wiki/Cato_the_Younger",
+      highlights: [
+        {
+          "title": "Death",
+          "children": [0, 1, 2]
+        }
+      ],
       instructions: [
         "Read the section on Cato's Death"
       ],
