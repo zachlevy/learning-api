@@ -326,7 +326,7 @@ cato_challenges = Challenge.create([
       ],
       instructions: [
         "Go to the __Early Life__ section",
-        "Read the __stories__ (skip the first paragraph)",
+        "Read the __stories__ vora_logo",
         "Take some notes on his __character__"
       ],
       est_duration: 210,
@@ -355,7 +355,7 @@ cato_challenges = Challenge.create([
       ],
       instructions: [
         "Go to the section on Cato's __Political Development__",
-        "Read the paragraph about his time as __Military Tribune__ near the bottom of the section",
+        "Read the paragraph about his time as __Military Tribune__ near the bottom of the section vora_logo",
         "Take some notes on his __character__"
       ],
       est_duration: 120,
@@ -430,7 +430,7 @@ cato_challenges = Challenge.create([
         }
       ],
       instructions: [
-        "Read the section on __The First Triumvirate__",
+        "Read the section on __The First Triumvirate__ vora_logo",
         "Take some notes of __how__ Cato opposed the Triumvirate (Triumvirate was an alliance between Caesar, Pompey, and Crassus)"
       ],
       est_duration: 240,
@@ -486,7 +486,7 @@ cato_challenges = Challenge.create([
         }
       ],
       instructions: [
-        "Read the section on Cato's __Death__"
+        "Read the section on Cato's __Death__ vora_logo"
       ],
       est_duration: 120,
       max_length: 140
