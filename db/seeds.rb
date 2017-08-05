@@ -555,7 +555,7 @@ cato_challenges = Challenge.create([
       buttonText: "Yes"
     }
   }, {
-    description: "",
+    description: "Go check out some relevant links if you'd like",
     challenge_type: external_suggestion_end,
     body: {
       external_contents: [
@@ -567,6 +567,10 @@ cato_challenges = Challenge.create([
           external_url: "https://www.youtube.com/watch?v=kOiyt63_1_U",
           icon: "youtube",
           text: "His Year: Cato (62 B.C.E.)"
+        }, {
+          external_url: "https://www.google.com/search?q=cato+the+younger",
+          icon: "google",
+          text: "Cato The Younger"
         }
       ]
     }
