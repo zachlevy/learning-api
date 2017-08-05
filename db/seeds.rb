@@ -81,6 +81,24 @@ suggestion_end = ChallengeType.create({
   }
 })
 
+# external links suggestion end type
+external_suggestion_end = ChallengeType.create({
+  name: "external_suggestion_end",
+  template_data: {
+    external_contents: [
+      {
+        external_url: "localhost:3002/wiki/Cato_the_Younger",
+        icon: "wikipedia-w",
+        text: "Cato the Younger"
+      }, {
+        external_url: "https://www.youtube.com/watch?v=kOiyt63_1_U",
+        icon: "youtube-play",
+        text: "His Year: Cato (62 B.C.E.)"
+      }
+    ]
+  }
+})
+
 # start challenge type
 simple_start = ChallengeType.create({
   name: "simple_start",
@@ -535,6 +553,22 @@ cato_challenges = Challenge.create([
     body: {
       callToActionText: "Are you curious to find out how much you remember after 1 week?",
       buttonText: "Yes"
+    }
+  }, {
+    description: "",
+    challenge_type: external_suggestion_end,
+    body: {
+      external_contents: [
+        {
+          external_url: "https://en.wikipedia.org/wiki/Cato_the_Younger",
+          icon: "wikipedia-w",
+          text: "Cato the Younger"
+        }, {
+          external_url: "https://www.youtube.com/watch?v=kOiyt63_1_U",
+          icon: "youtube",
+          text: "His Year: Cato (62 B.C.E.)"
+        }
+      ]
     }
   }
 ])
