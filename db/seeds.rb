@@ -533,8 +533,8 @@ cato_challenges = Challenge.create([
     description: "Enter your email to get notified when we make more Mini Courses to learn",
     challenge_type: simple_signup,
     body: {
-      callToActionText: "Would like to learn about other historical figures?",
-      buttonText: "Let me know"
+      callToActionText: "Are you curious to find out how much you remember after 1 week?",
+      buttonText: "Yes"
     }
   }
 ])
