@@ -329,6 +329,80 @@ user1 = User.create({
   confirmed_at: DateTime.now
 })
 
+# challenges for the how planes and sailing work course
+planes_sailing_challenges = Challenge.create([
+  {
+    description: "Watch the video on the introduction to lift, thrust, weight, and drag",
+    challenge_type: youtube_video,
+    body: {
+      youtube_id: "5ltjFEei3AI",
+      start_seconds: 81,
+      end_seconds: 106,
+      est_duration: 25
+    }
+  }, {
+    description: "Watch the video on lift and thrust",
+    challenge_type: youtube_video,
+    body: {
+      youtube_id: "5ltjFEei3AI",
+      start_seconds: 109,
+      end_seconds: 156,
+      est_duration: 47
+    }
+  }, {
+    description: "Watch the video on thrust",
+    challenge_type: youtube_video,
+    body: {
+      youtube_id: "mBRCUU_fQrQ",
+      start_seconds: 130,
+      end_seconds: 164,
+      est_duration: 34
+    }
+  }, {
+    description: "Watch the video on the Bernoulli Effect",
+    challenge_type: youtube_video,
+    body: {
+      youtube_id: "mBRCUU_fQrQ",
+      start_seconds: 429,
+      est_duration: 80
+    }
+  }, {
+    description: "Watch the video on how wings create lift",
+    challenge_type: youtube_video,
+    body: {
+      youtube_id: "YDeQXPNpLeY",
+      start_seconds: 125,
+      end_seconds: 230,
+      est_duration: 105
+    }
+  }
+])
+
+# Cato Course
+# https://docs.google.com/document/d/1Y5ssZT4t6x0oz1x6h-N5tcdOiJtHBKfM2WogWxcceYo/edit
+planes_sailing_course = Course.create({
+  title: "How do planes and sail boats work?",
+  description: "Believe it or not, airplanes and sail boats are incredibly similar.",
+  ui: {
+    primaryColor: "#B993D6",
+    secondaryColor: "#8CA6DB",
+    icon: "paper-plane",
+    subtle: "swirls"
+  },
+  flow: [
+    {
+      type: Challenge.find(11).challenge_type.name,
+      id: Challenge.find(11).id
+    }
+  ] + planes_sailing_challenges.map do |c|
+    {
+      type: c.challenge_type.name,
+      id: c.id
+    }
+  end,
+  tags: ["Science", "How it works"]
+})
+
 # challenges for the cato course
 cato_challenges = Challenge.create([
   {
