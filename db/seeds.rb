@@ -602,3 +602,289 @@ cato_course = Course.create({
   end,
   tags: ["History", "Ancient Rome", "Famous People"]
 })
+
+# challenges for the exoplanet course
+exoplanet_challenges = Challenge.create([
+  {
+    # intro
+    description: "Read the introduction on exoplanets",
+    challenge_type: wikipedia_notes,
+    body: {
+      embed_url: "/wiki/Exoplanet",
+      highlights: [],
+      instructions: [
+        "Read __only__ the __first__ paragraph on exoplanets",
+        "Take a note on __what__ an exoplanet is"
+      ],
+      est_duration: 30,
+      max_length: 64
+    }
+  }, {
+    # kick it off with why
+    description: "Watch the video on the Trappist Discoveries",
+    challenge_type: youtube_video,
+    body: {
+      youtube_id: "TB4acbZyFBw",
+      est_duration: 160,
+      start_seconds: 27,
+      end_seconds: 191,
+    }
+  }, {
+    description: "Answer the question",
+    challenge_type: simple_q_and_a,
+    body: {
+      question: "How many planets were around the Trappist-1 Star?",
+      answer: ["7", "seven", "VII"],
+      max_length: 32,
+      answer_type: "regex"
+    }
+  }, {
+    description: "Answer the question",
+    challenge_type: simple_q_and_a,
+    body: {
+      question: "How many planets were found within the habitable zone of the star?",
+      answer: ["3", "three", "III"],
+      max_length: 32,
+      answer_type: "regex"
+    }
+  }, {
+    description: "Answer the open ended question",
+    challenge_type: open_ended_q,
+    body: {
+      question: "What tools did they use to find the planets?",
+      max_length: 128,
+      min_length: 8
+    }
+  }, {
+    description: "Watch the video on find exoplanets through the transit method",
+    challenge_type: youtube_video,
+    body: {
+      youtube_id: "7ATtD8x7vV0",
+      est_duration: 34,
+      start_seconds: 352,
+      end_seconds: 387,
+    }
+  }, {
+    description: "Watch the video on find exoplanets through the transit method",
+    challenge_type: youtube_video,
+    body: {
+      youtube_id: "7ATtD8x7vV0",
+      est_duration: 32,
+      start_seconds: 400,
+      end_seconds: 433,
+    }
+  }, {
+    # questions about transit method
+    description: "Answer the open ended question",
+    challenge_type: open_ended_q,
+    body: {
+      question: "How can we detect planets with the transit method?",
+      max_length: 256,
+      min_length: 16
+    }
+  }, {
+    description: "Read about the disadvantages of photometry",
+    challenge_type: wikipedia_notes,
+    body: {
+      embed_url: "/wiki/Methods_of_detecting_exoplanets",
+      highlights: [
+        {
+          title: "Established_detection_methods",
+          children: [11, 16, 17, 18]
+        }
+      ],
+      instructions: [
+        "Scroll down to the section on __Transit Photometry__",
+        "Read the 3 paragraphs about__Transit Photometry__ and its disadvantages vora_logo",
+        "Take some notes the __disadvantages__"
+      ],
+      est_duration: 180,
+      max_length: 128
+    }
+  }, {
+    # questions about transit method
+    description: "Answer the open ended question",
+    challenge_type: open_ended_q,
+    body: {
+      question: "Would you say that the transit photometry (transit method) is reliable?",
+      max_length: 256,
+      min_length: 16
+    }
+  }, {
+    description: "Read about the advantages of transit photometry",
+    challenge_type: wikipedia_notes,
+    body: {
+      embed_url: "/wiki/Methods_of_detecting_exoplanets",
+      highlights: [
+        {
+          title: "Established_detection_methods",
+          children: [11, 21, 22]
+        }
+      ],
+      instructions: [
+        "Scroll down to the section on __Transit Photometry__",
+        "Scroll down some more and read the 2 paragraphs about advantages of __Transit Photometry__ vora_logo",
+        "Take some notes the __advantages__"
+      ],
+      est_duration: 120,
+      max_length: 128
+    }
+  }, {
+    description: "Answer the open ended question",
+    challenge_type: open_ended_q,
+    body: {
+      question: "What details can we learn about a planet from transit photometry (transit method)?",
+      max_length: 256,
+      min_length: 16
+    }
+  },
+  # questions about advantages / disadvantages of the transit method
+  {
+
+    description: "Watch the video on find exoplanets through the doppler shifts",
+    challenge_type: youtube_video,
+    body: {
+      youtube_id: "7ATtD8x7vV0",
+      est_duration: 55,
+      start_seconds: 89,
+      end_seconds: 142,
+    }
+  }, {
+    description: "Read about Doppler Spectroscopy and its limitations",
+    challenge_type: wikipedia_notes,
+    body: {
+      embed_url: "/wiki/Doppler_spectroscopy",
+      highlights: [
+        {
+          title: "Limitations",
+          children: [0, 1, 2, 3, 4]
+        }
+      ],
+      instructions: [
+        "Scroll down to the section on __Limitations__",
+        "Read the 2 paragraphs about the disadvantages of __Doppler Spectroscopy__ vora_logo",
+        "Take some notes the __disadvantages__"
+      ],
+      est_duration: 180,
+      max_length: 128
+    }
+  }, {
+    description: "Answer the question",
+    challenge_type: simple_q_and_a,
+    body: {
+      question: "Would we be able to detect an Earth sized planet with Doppler Spectroscopy?",
+      answer: negatives,
+      max_length: 32,
+      answer_type: "regex"
+    }
+  }, {
+    description: "Watch the video on calculating density of an exoplanet",
+    challenge_type: youtube_video,
+    body: {
+      youtube_id: "7ATtD8x7vV0",
+      est_duration: 14,
+      start_seconds: 386,
+      end_seconds: 405,
+    }
+  }, {
+    # after we learn about transist, gravity, etc.
+    description: "Watch the video on how they discovered the Trappist Exoplanets",
+    challenge_type: youtube_video,
+    body: {
+      youtube_id: "TB4acbZyFBw",
+      est_duration: 99,
+      start_seconds: 418,
+      end_seconds: 509,
+    }
+  }, {
+    description: "Answer the open ended question",
+    challenge_type: open_ended_q,
+    body: {
+      question: "How did they detect the planets in the TRAPPIST-1 system?",
+      max_length: 256,
+      min_length: 16
+    }
+  }, {
+    # last probably, kinda brings you down
+    description: "Watch the video on the habitable zone",
+    challenge_type: youtube_video,
+    body: {
+      youtube_id: "9Q_0vOdzw4Y",
+      est_duration: 56,
+      start_seconds: 59,
+      end_seconds: 117,
+    }
+  }, {
+    description: "Answer the open ended question",
+    challenge_type: open_ended_q,
+    body: {
+      question: "What does being in the habitable zone mean for an exoplanet?",
+      max_length: 128,
+      min_length: 16
+    }
+  }, {
+    description: "Enter your email to get notified when we make more Mini Courses to learn",
+    challenge_type: simple_signup,
+    body: {
+      callToActionText: "Would you like to know when more mini courses are available?",
+      buttonText: "Yes"
+    }
+  }, {
+    description: "Go check out some relevant links if you'd like",
+    challenge_type: external_suggestion_end,
+    body: {
+      external_contents: [
+        {
+          external_url: "https://en.wikipedia.org/wiki/TRAPPIST-1",
+          icon: "wikipedia-w",
+          text: "TRAPPIST-1"
+        }, {
+          external_url: "https://en.m.wikipedia.org/wiki/Methods_of_detecting_exoplanets",
+          icon: "wikipedia-w",
+          text: "Methods of Detecting Exoplanets"
+        }, {
+          external_url: "https://en.m.wikipedia.org/wiki/Doppler_spectroscopy",
+          icon: "wikipedia-w",
+          text: "Doppler Spectroscopy"
+        }, {
+          external_url: "https://www.youtube.com/watch?v=7ATtD8x7vV0",
+          icon: "youtube",
+          text: "Crash Course Exoplanets"
+        }, {
+          external_url: "https://www.youtube.com/watch?v=TB4acbZyFBw",
+          icon: "youtube",
+          text: "NASA TRAPPIST-1 Announcement"
+        }, {
+          external_url: "https://www.nasa.gov/jpl/finding-another-earth",
+          icon: "rocket",
+          text: "Finding Another Earth"
+        }
+      ]
+    }
+  }
+])
+
+# Exoplanet Course
+# https://docs.google.com/document/d/1Q0yTYlIqE_HZxOcaee-xR6QkevkwcqQDrKrDdcv4n1M/edit
+exoplanet_course = Course.create({
+  title: "Exoplanets and a Second Earth",
+  description: "We've had a huge discovery about exoplanets, find out why it's important and how we did it.",
+  ui: {
+    primaryColor: "#000000",
+    secondaryColor: "#434343",
+    icon: "globe",
+    subtle: "swirls"
+  },
+  flow: [
+    {
+      type: Challenge.find(11).challenge_type.name,
+      id: Challenge.find(11).id
+    }
+  ] + exoplanet_challenges.map do |c|
+    {
+      type: c.challenge_type.name,
+      id: c.id
+    }
+  end,
+  tags: ["Space", "Science"]
+})
