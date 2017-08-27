@@ -625,7 +625,7 @@ exoplanet_challenges = Challenge.create([
     challenge_type: youtube_video,
     body: {
       youtube_id: "TB4acbZyFBw",
-      est_duration: 160,
+      est_duration: 164,
       start_seconds: 27,
       end_seconds: 191,
     }
@@ -660,7 +660,7 @@ exoplanet_challenges = Challenge.create([
     challenge_type: youtube_video,
     body: {
       youtube_id: "7ATtD8x7vV0",
-      est_duration: 34,
+      est_duration: 35,
       start_seconds: 352,
       end_seconds: 387,
     }
@@ -669,7 +669,7 @@ exoplanet_challenges = Challenge.create([
     challenge_type: youtube_video,
     body: {
       youtube_id: "7ATtD8x7vV0",
-      est_duration: 32,
+      est_duration: 33,
       start_seconds: 400,
       end_seconds: 433,
     }
@@ -698,7 +698,7 @@ exoplanet_challenges = Challenge.create([
         "Read the 3 paragraphs about__Transit Photometry__ and its disadvantages vora_logo",
         "Take some notes the __disadvantages__"
       ],
-      est_duration: 180,
+      est_duration: 240,
       max_length: 128
     }
   }, {
@@ -745,7 +745,7 @@ exoplanet_challenges = Challenge.create([
     challenge_type: youtube_video,
     body: {
       youtube_id: "7ATtD8x7vV0",
-      est_duration: 55,
+      est_duration: 53,
       start_seconds: 89,
       end_seconds: 142,
     }
@@ -782,7 +782,7 @@ exoplanet_challenges = Challenge.create([
     challenge_type: youtube_video,
     body: {
       youtube_id: "7ATtD8x7vV0",
-      est_duration: 14,
+      est_duration: 19,
       start_seconds: 386,
       end_seconds: 405,
     }
@@ -792,7 +792,7 @@ exoplanet_challenges = Challenge.create([
     challenge_type: youtube_video,
     body: {
       youtube_id: "TB4acbZyFBw",
-      est_duration: 99,
+      est_duration: 91,
       start_seconds: 418,
       end_seconds: 509,
     }
@@ -810,7 +810,7 @@ exoplanet_challenges = Challenge.create([
     challenge_type: youtube_video,
     body: {
       youtube_id: "9Q_0vOdzw4Y",
-      est_duration: 56,
+      est_duration: 58,
       start_seconds: 59,
       end_seconds: 117,
     }
