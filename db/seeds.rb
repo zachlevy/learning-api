@@ -888,3 +888,40 @@ exoplanet_course = Course.create({
   end,
   tags: ["Space", "Science"]
 })
+
+
+crash_course_yt_caption_challenges = Challenge.create([
+  {
+    description: "Test video with English subtitles",
+    challenge_type: youtube_video,
+    body: {
+      youtube_id: "Yocja_N5s1I",
+      est_duration: 0,
+      load_captions: true
+    }
+  }
+])
+
+# Crash Course YouTube Captions Demo
+crash_course_yt_captions_demo = Course.create({
+  title: "Crash Course YouTube Captions Demo",
+  description: "Test Course, not for production",
+  ui: {
+    primaryColor: "#b31217",
+    secondaryColor: "#e52d27",
+    icon: "exclamation-triangle",
+    subtle: "hex"
+  },
+  flow: [
+    {
+      type: Challenge.find(11).challenge_type.name,
+      id: Challenge.find(11).id
+    }
+  ] + crash_course_yt_caption_challenges.map do |c|
+    {
+      type: c.challenge_type.name,
+      id: c.id
+    }
+  end,
+  tags: ["Feature", "Test"]
+})
