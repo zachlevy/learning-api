@@ -19,6 +19,7 @@ class Challenge < ApplicationRecord
 
   after_create :load_api_data
 
+  # youtube api get captions
   def load_api_data
     if self.challenge_type.name == "youtube_video" && self.body["load_captions"]
 
