@@ -21,24 +21,23 @@ class Definition < ApplicationRecord
     language = "en"
     url = "https://od-api.oxforddictionaries.com:443/api/v1/entries/#{language}/#{self.word}"
     response = open(url,
-      "app_id" => "2a51a54a",
-      "app_key" => "9c373d7870302e60d108a4c892ddf9ee"
+      "app_id" => ENV['OXFORD_DICTIONARY_APP_ID'],
+      "app_key" => ENV['OXFORD_DICTIONARY_APP_KEY']
     ).read
     # save the response
     self.body = JSON.parse(response)
     puts self.body
     # parse the response
     definitions = []
+    # in case we miss
     begin
       results = self.body["results"]
       lexicalEntries = results[0]["lexicalEntries"]
       lexicalEntries.each do |lexicalEntry|
         lexicalEntry["entries"].each do |entryInstance|
           entryInstance["senses"].each do |sense|
-            puts "sense"
-            puts sense
-            sense["definitions"].each do |defin|
-              definitions << "#{defin}"
+            sense["definitions"].each do |definition|
+              definitions << "#{definition}"
             end
           end
         end

@@ -1,6 +1,11 @@
 # Learning Platform Rails API
 Used for interacting with the client app.
 
+### Environment Variables
+* `API_URL` base url for the `learning-api` server
+* `OXFORD_DICTIONARY_APP_ID`
+* `OXFORD_DICTIONARY_APP_KEY`
+
 ### Models
 #### Challenge
 the challenge model has an attribute `body` which is a `jsonb` with the following optional fields depending on the challenge type
