@@ -11,6 +11,7 @@
 #  tags         :jsonb
 #  image_url    :string
 #  est_duration :integer
+#  ui           :jsonb
 #
 
 FactoryGirl.define do
