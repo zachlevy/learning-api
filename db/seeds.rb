@@ -1041,11 +1041,11 @@ adaptive_learning_mc_demo_challenges = Challenge.create([
       {
         id: Challenge.last.id,
         type: Challenge.last.challenge_type.name,
-        applies_to: ["don't"]
+        only_inputs: ["don't"]
       }, {
-        id: Challenge.find(Challenge.last.id - 1),
+        id: Challenge.find(Challenge.last.id - 1).id,
         type: Challenge.find(Challenge.last.id - 1).challenge_type.name,
-        applies_to: ["doesn't speaks"]
+        only_inputs: ["doesn't speaks"]
       }
     ]
   }, {
