@@ -32,7 +32,7 @@ class Challenge < ApplicationRecord
           start: caption.attr("start").to_f,
           duration: caption.attr("dur").to_f,
           end: caption.attr("start").to_f + caption.attr("dur").to_f, # easier math on the front end
-          text: caption.content
+          text: Nokogiri::HTML.parse(caption.content).text
         }
       end
       self.body["captions"] = captions

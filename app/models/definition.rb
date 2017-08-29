@@ -18,8 +18,14 @@ class Definition < ApplicationRecord
 
   # oxford dictionary api
   def load_api_data
+    if self.definitions.length != 0
+      return
+    end
+
     language = "en"
     url = "https://od-api.oxforddictionaries.com:443/api/v1/entries/#{language}/#{self.word}"
+    puts url
+
     response = open(url,
       "app_id" => ENV['OXFORD_DICTIONARY_APP_ID'],
       "app_key" => ENV['OXFORD_DICTIONARY_APP_KEY']

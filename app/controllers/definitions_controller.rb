@@ -17,7 +17,14 @@ class DefinitionsController < ApplicationController
   def create
     @definition = Definition.new(definition_params)
 
-    if @definition.save
+    # check to see if definition already exist and had successful response from the api
+    @existing_definition = Definition.find_by(word: params[:definition][:word])
+    already_defined = !@existing_definition.nil? && @existing_definition.definitions.length != 0
+    if already_defined
+      @definition = @existing_definition
+    end
+
+    if already_defined || @definition.save
       render json: @definition, status: :created, location: @definition
     else
       render json: @definition.errors, status: :unprocessable_entity
