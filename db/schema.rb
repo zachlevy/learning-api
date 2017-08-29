@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170827230956) do
+ActiveRecord::Schema.define(version: 20170829175642) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20170827230956) do
     t.jsonb "body", default: {}
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.jsonb "dependencies", default: []
     t.index ["challenge_type_id"], name: "index_challenges_on_challenge_type_id"
   end
 

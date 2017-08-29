@@ -925,3 +925,66 @@ crash_course_yt_captions_demo = Course.create({
   end,
   tags: ["Feature", "Test"]
 })
+
+adaptive_learning_demo_inserted_challenges = Challenge.create([
+  {
+    description: "Watch the video on why the earth isn't flat",
+    challenge_type: youtube_video,
+    body: {
+      youtube_id: "VNqNnUJVcVs",
+      est_duration: 600,
+      load_captions: false
+    }
+  }
+])
+
+adaptive_learning_demo_challenges = Challenge.create([
+  {
+    description: "Answer the question with some keywords",
+    challenge_type: simple_q_and_a,
+    body: {
+      question: "Is the Earth flat?",
+      answer: negatives,
+      max_length: 16,
+      answer_type: "regex",
+      dictionary: []
+    },
+    dependencies: [
+      {
+        id: Challenge.last.id,
+        type: Challenge.last.challenge_type.name
+      }
+    ]
+  }, {
+    description: "Enter your email to get notified when we make more Mini Courses to learn",
+    challenge_type: simple_signup,
+    body: {
+      callToActionText: "Would you like to know when more Mini Courses are available?",
+      buttonText: "Yes"
+    }
+  }
+])
+
+# Crash Course YouTube Captions Demo
+adaptive_learning_demo = Course.create({
+  title: "Adaptive Learning Demo",
+  description: "Test Course, not for production",
+  ui: {
+    primaryColor: "#43C6AC",
+    secondaryColor: "#191654",
+    icon: "exclamation-triangle",
+    subtle: "hex"
+  },
+  flow: [
+    {
+      type: Challenge.find(11).challenge_type.name,
+      id: Challenge.find(11).id
+    }
+  ] + adaptive_learning_demo_challenges.map do |c|
+    {
+      type: c.challenge_type.name,
+      id: c.id
+    }
+  end,
+  tags: ["Feature", "Test"]
+})
