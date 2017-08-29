@@ -11,6 +11,20 @@ affirmatives = ["aye", "yea", "yeah", "yep", "yes"]
 # negative terms
 negatives = ["nay", "no", "nope", "noway", "nah"]
 
+multiple_choice = ChallengeType.create({
+  name: "multiple_choice",
+  template_data: {
+    question: "I speak Hebrew and French but Ann",
+    options: [
+      "don't",
+      "doesn't",
+      "speaks",
+      "doesn't speaks"
+    ],
+    correct_answer: "doesn't"
+  }
+})
+
 # simple Q and A challenge type
 simple_q_and_a = ChallengeType.create({
   name: "simple_q_and_a",
@@ -926,7 +940,7 @@ crash_course_yt_captions_demo = Course.create({
   tags: ["Feature", "Test"]
 })
 
-adaptive_learning_demo_inserted_challenges = Challenge.create([
+adaptive_learning_simple_q_and_a_demo_inserted_challenges = Challenge.create([
   {
     description: "Watch the video on why the earth isn't flat",
     challenge_type: youtube_video,
@@ -938,7 +952,7 @@ adaptive_learning_demo_inserted_challenges = Challenge.create([
   }
 ])
 
-adaptive_learning_demo_challenges = Challenge.create([
+adaptive_learning_simple_q_and_a_demo_challenges = Challenge.create([
   {
     description: "Answer the question with some keywords",
     challenge_type: simple_q_and_a,
@@ -965,8 +979,8 @@ adaptive_learning_demo_challenges = Challenge.create([
   }
 ])
 
-# Crash Course YouTube Captions Demo
-adaptive_learning_demo = Course.create({
+# Adaptive Learning Simple Q and A Demo
+adaptive_learning_simple_q_and_a_demo = Course.create({
   title: "Adaptive Learning Demo",
   description: "Test Course, not for production",
   ui: {
@@ -980,7 +994,86 @@ adaptive_learning_demo = Course.create({
       type: Challenge.find(11).challenge_type.name,
       id: Challenge.find(11).id
     }
-  ] + adaptive_learning_demo_challenges.map do |c|
+  ] + adaptive_learning_simple_q_and_a_demo_challenges.map do |c|
+    {
+      type: c.challenge_type.name,
+      id: c.id
+    }
+  end,
+  tags: ["Feature", "Test"]
+})
+
+adaptive_learning_mc_demo_inserted_challenges = Challenge.create([
+  {
+    description: "Watch the video for Ann doesn't speaks",
+    challenge_type: youtube_video,
+    body: {
+      youtube_id: "VNqNnUJVcVs",
+      est_duration: 600,
+      load_captions: false
+    }
+  }, {
+    description: "Watch the video for Ann don't",
+    challenge_type: youtube_video,
+    body: {
+      youtube_id: "VNqNnUJVcVs",
+      est_duration: 500,
+      load_captions: false
+    }
+  }
+])
+
+adaptive_learning_mc_demo_challenges = Challenge.create([
+  {
+    description: "Answer the question by selecting an option",
+    challenge_type: multiple_choice,
+    body: {
+      question: "I speak Hebrew and French but Ann",
+      options: [
+        "don't",
+        "doesn't",
+        "speaks",
+        "doesn't speaks"
+      ],
+      correct_answer: "doesn't"
+    },
+    dependencies: [
+      {
+        id: Challenge.last.id,
+        type: Challenge.last.challenge_type.name,
+        applies_to: ["don't"]
+      }, {
+        id: Challenge.find(Challenge.last.id - 1),
+        type: Challenge.find(Challenge.last.id - 1).challenge_type.name,
+        applies_to: ["doesn't speaks"]
+      }
+    ]
+  }, {
+    description: "Enter your email to get notified when we make more Mini Courses to learn",
+    challenge_type: simple_signup,
+    body: {
+      callToActionText: "Would you like to know when more Mini Courses are available?",
+      buttonText: "Yes"
+    }
+  }
+])
+
+# Adaptive Learning Multiple Choice Demo
+adaptive_learning_mc_demo = Course.create({
+  title: "Adaptive Learning Multiple Choice Demo",
+  description: "Test Course, not for production",
+  ui: {
+    primaryColor: "#4B79A1",
+    secondaryColor: "#283E51",
+    icon: "exclamation-triangle",
+    subtle: "hex"
+  },
+  flow: [
+    {
+      type: Challenge.find(11).challenge_type.name,
+      id: Challenge.find(11).id
+    }
+  ] + adaptive_learning_mc_demo_challenges.map do |c|
     {
       type: c.challenge_type.name,
       id: c.id
