@@ -539,7 +539,9 @@ cato_challenges = Challenge.create([
         }
       ],
       instructions: [
-        "Read the section on Cato's __Death__ vora_logo"
+        "Go to the section on Cato's __Death__",
+        "Read the section on Cato's __Death__ vora_logo",
+        "Take some notes on it"
       ],
       est_duration: 120,
       max_length: 140
