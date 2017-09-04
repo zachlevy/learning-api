@@ -1083,3 +1083,209 @@ adaptive_learning_mc_demo = Course.create({
   end,
   tags: ["Feature", "Test"]
 })
+
+# challenges for the sci show courses
+dino_dependency_rearrange = Challenge.create({
+  description: "Watch the video on dinosaurs",
+  challenge_type: youtube_video,
+  body: {
+    youtube_id: "lSPNkwiFhzY",
+    est_duration: 27.54.to_i,
+    start_seconds: 39.66.to_i,
+    end_seconds: 67.2.to_i
+  }
+})
+
+dino_dependency_just_bone = Challenge.create({
+  description: "Watch the video on dinosaurs",
+  challenge_type: youtube_video,
+  body: {
+    youtube_id: "lSPNkwiFhzY",
+    est_duration: 8.56.to_i,
+    start_seconds: 18.88.to_i,
+    end_seconds: 27.44.to_i
+  }
+})
+
+dino_dependency_trace_fossils = Challenge.create({
+  description: "Watch the video on dinosaurs",
+  challenge_type: youtube_video,
+  body: {
+    youtube_id: "lSPNkwiFhzY",
+    est_duration: 10.74.to_i,
+    start_seconds: 67.2.to_i,
+    end_seconds: 77.94.to_i
+  }
+})
+
+dino_dependency_soft_bodied = Challenge.create({
+  description: "Watch the video on dinosaurs",
+  challenge_type: youtube_video,
+  body: {
+    youtube_id: "lSPNkwiFhzY",
+    est_duration: 10.06.to_i,
+    start_seconds: 109.8.to_i,
+    end_seconds: 119.86.to_i
+  }
+})
+
+dino_dependency_nc_state_uni = Challenge.create({
+  description: "Watch the video on dinosaurs",
+  challenge_type: youtube_video,
+  body: {
+    youtube_id: "lSPNkwiFhzY",
+    est_duration: 27.66.to_i,
+    start_seconds: 133.14.to_i,
+    end_seconds: 160.8.to_i
+  }
+})
+
+dino_dependency_brian_tissue = Challenge.create({
+  description: "Watch the video on dinosaurs",
+  challenge_type: youtube_video,
+  body: {
+    youtube_id: "lSPNkwiFhzY",
+    est_duration: 14.6.to_i,
+    start_seconds: 199.06.to_i,
+    end_seconds: 213.66.to_i
+  }
+})
+
+dinosaur_challenges = Challenge.create([
+  {
+    description: "Watch the video on dinosaurs",
+    challenge_type: youtube_video,
+    body: {
+      youtube_id: "lSPNkwiFhzY",
+      est_duration: 239
+    }
+  }, {
+    description: "Answer the question",
+    challenge_type: simple_q_and_a,
+    body: {
+      question: "Why are most fossils of Dinosaurs just bone?",
+      answer: ["soft", "tissue", "hard", "preserve"],
+      max_length: 64,
+      answer_type: "regex"
+    },
+    dependencies: [
+      {
+        id: dino_dependency_just_bone.id,
+        type: dino_dependency_just_bone.challenge_type.name
+      }
+    ]
+  }, {
+    description: "Answer the question",
+    challenge_type: multiple_choice,
+    body: {
+      question: "Rearrange order of events",
+      options: [
+        "Die, buried, soft tissue decay, minerals seep into bone",
+        "Soft tissue decay, die, buried, minerals seep into bone",
+        "Die, soft tissue decay, buried, minerals seep into bone",
+        "Die, soft tissue decay, minerals seep into bone, buried"
+      ],
+      correct_answer: "Die, soft tissue decay, buried, minerals seep into bone"
+    },
+    dependencies: [
+      {
+        id: dino_dependency_rearrange.id,
+        type: dino_dependency_rearrange.challenge_type.name
+      }
+    ]
+  }, {
+    description: "Answer the question by selecting an option",
+    challenge_type: multiple_choice,
+    body: {
+      question: "What are trace fossils?",
+      options: [
+        "Skin patterns left in mud",
+        "Tracing of bone fossils",
+        "Soft tissue preserved in resin",
+        "All of the above"
+      ],
+      correct_answer: "Skin patterns left in mud"
+    },
+    dependencies: [
+      {
+        id: dino_dependency_trace_fossils.id,
+        type: dino_dependency_trace_fossils.challenge_type.name
+      }
+    ]
+  }, {
+    description: "Answer the question by selecting an option",
+    challenge_type: multiple_choice,
+    body: {
+      question: "Why were scientists able to find fossils of soft-bodied species if soft tissue often decay before fossilization?",
+      options: [
+        "Organisms were trapped and preserved in ice",
+        "Organisms were instantly buried",
+        "Some organisms lived and died underground",
+        "Soft-bodied organisms were preserved in resin"
+      ],
+      correct_answer: "Organisms were instantly buried"
+    },
+    dependencies: [
+      {
+        id: dino_dependency_soft_bodied.id,
+        type: dino_dependency_soft_bodied.challenge_type.name
+      }
+    ]
+  }, {
+    description: "Answer the question",
+    challenge_type: simple_q_and_a,
+    body: {
+      question: "What did the researchers from North Carolina State University claim was the reason why they were able to find undecayed dinosaur tissue?",
+      answer: ["blood", "formaldehyde"],
+      max_length: 64,
+      answer_type: "regex"
+    },
+    dependencies: [
+      {
+        id: dino_dependency_nc_state_uni.id,
+        type: dino_dependency_nc_state_uni.challenge_type.name
+      }
+    ]
+  }, {
+    description: "Answer the question by selecting an option",
+    challenge_type: multiple_choice,
+    body: {
+      question: "Have scientists found fossilized dinosaur brain tissue?",
+      options: [
+        "True",
+        "False"
+      ],
+      correct_answer: "True"
+    },
+    dependencies: [
+      {
+        id: dino_dependency_brian_tissue.id,
+        type: dino_dependency_brian_tissue.challenge_type.name
+      }
+    ]
+  }
+])
+
+# dinosaur course
+dinosaur_course = Course.create({
+  title: "Dinosaur Brains",
+  description: "Where are all the dinosaur brains?",
+  ui: {
+    primaryColor: "#134E5E",
+    secondaryColor: "#71B280",
+    icon: "bug",
+    subtle: "hex"
+  },
+  flow: [
+    {
+      type: Challenge.find(11).challenge_type.name,
+      id: Challenge.find(11).id
+    }
+  ] + dinosaur_challenges.map do |c|
+    {
+      type: c.challenge_type.name,
+      id: c.id
+    }
+  end,
+  tags: ["Science", "SciShow"]
+})
