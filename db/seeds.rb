@@ -1268,8 +1268,8 @@ dinosaur_challenges = Challenge.create([
 
 # dinosaur course
 dinosaur_course = Course.create({
-  title: "Dinosaur Brains",
-  description: "Where are all the dinosaur brains?",
+  title: "Where are all the dinosaur brains?",
+  description: "",
   ui: {
     primaryColor: "#134E5E",
     secondaryColor: "#71B280",
@@ -1282,6 +1282,257 @@ dinosaur_course = Course.create({
       id: Challenge.find(11).id
     }
   ] + dinosaur_challenges.map do |c|
+    {
+      type: c.challenge_type.name,
+      id: c.id
+    }
+  end,
+  tags: ["Science", "SciShow"]
+})
+
+icbm_dependency_range = Challenge.create({
+  description: "Watch the video on dinosaurs",
+  challenge_type: youtube_video,
+  body: {
+    youtube_id: "h-aHMUW5Xlo",
+    est_duration: 6.2.to_i,
+    start_seconds: 27.32.to_i,
+    end_seconds: 33.52.to_i
+  }
+})
+
+icbm_dependency_first = Challenge.create({
+  description: "Watch the video on dinosaurs",
+  challenge_type: youtube_video,
+  body: {
+    youtube_id: "h-aHMUW5Xlo",
+    est_duration: 7.12.to_i,
+    start_seconds: 33.52.to_i,
+    end_seconds: 40.64.to_i
+  }
+})
+
+icbm_dependency_trade_off = Challenge.create({
+  description: "Watch the video on dinosaurs",
+  challenge_type: youtube_video,
+  body: {
+    youtube_id: "h-aHMUW5Xlo",
+    est_duration: 3.82.to_i,
+    start_seconds: 67.68.to_i,
+    end_seconds: 71.5.to_i
+  }
+})
+
+icbm_dependency_multi_stage = Challenge.create({
+  description: "Watch the video on dinosaurs",
+  challenge_type: youtube_video,
+  body: {
+    youtube_id: "h-aHMUW5Xlo",
+    est_duration: 23.54.to_i,
+    start_seconds: 95.72.to_i,
+    end_seconds: 119.26.to_i
+  }
+})
+
+icbm_dependency_fission_fusion = Challenge.create({
+  description: "Watch the video on dinosaurs",
+  challenge_type: youtube_video,
+  body: {
+    youtube_id: "h-aHMUW5Xlo",
+    est_duration: 8.671.to_i,
+    start_seconds: 152.389.to_i,
+    end_seconds: 161.06.to_i
+  }
+})
+
+icbm_dependency_fission = Challenge.create({
+  description: "Watch the video on dinosaurs",
+  challenge_type: youtube_video,
+  body: {
+    youtube_id: "h-aHMUW5Xlo",
+    est_duration: 27.85.to_i,
+    start_seconds: 161.06.to_i,
+    end_seconds: 178.91.to_i
+  }
+})
+
+
+# icbm challenges
+icbm_challenges = Challenge.create([
+  {
+    description: "Watch the video on ICBMs",
+    challenge_type: youtube_video,
+    body: {
+      youtube_id: "h-aHMUW5Xlo",
+      est_duration: 382
+    }
+  }, {
+    description: "Answer the question",
+    challenge_type: simple_q_and_a,
+    body: {
+      question: "what does ICBM stand for?",
+      answer: ["intercontinental ballistic missile"],
+      max_length: 64,
+      answer_type: "regex"
+    },
+    dependencies: []
+  }, {
+    description: "Answer the question by selecting an option",
+    challenge_type: multiple_choice,
+    body: {
+      question: "What are missiles?",
+      options: [
+        "Projectile fired from a rocket",
+        "Guided rocket-propelled weapon",
+        "Rocket propelled weapon",
+        "Guided projectile bomb"
+      ],
+      correct_answer: "Guided rocket-propelled weapon"
+    },
+    dependencies: []
+  }, {
+    description: "Answer the question by selecting an option",
+    challenge_type: multiple_choice,
+    body: {
+      question: "What's typical range of an ICBM?",
+      options: [
+        "Greater than 5,500 KMs",
+        "Greater than 10,000 KMs",
+        "3,000 KMs to 5,000 KMs",
+        "1,000 KMs to 2,500 KMs"
+      ],
+      correct_answer: "Greater than 5,500 KMs"
+    },
+    dependencies: [
+      {
+        id: icbm_dependency_range.id,
+        type: icbm_dependency_range.challenge_type.name
+      }
+    ]
+  }, {
+    description: "Answer the question by selecting an option",
+    challenge_type: multiple_choice,
+    body: {
+      question: "When did the US and Russia first develop ICBMs?",
+      options: [
+        "Since early 1960's",
+        "Since late 1950's",
+        "Since late 1960's",
+        "Since early 1950's"
+      ],
+      correct_answer: "Since late 1950's"
+    },
+    dependencies: [
+      {
+        id: icbm_dependency_first.id,
+        type: icbm_dependency_first.challenge_type.name
+      }
+    ]
+  }, {
+    description: "Answer the question by selecting an option",
+    challenge_type: multiple_choice,
+    body: {
+      question: "What is the mass distance trade off when designing ICBMs?",
+      options: [
+        "The more mass a missile has the more momentum it carries, thus the further it flies",
+        "The less mass a projectile has the further it flies, but the less mass it has the less deadly the weapon",
+        "The less mass a projectile has the further it flies, but the less mass it has the less accurate the guiding system is",
+        "The more mass a missile has the more fuel is needs the heavier it weighs"
+      ],
+      correct_answer: "The less mass a projectile has the further it flies, but the less mass it has the less deadly the weapon"
+    },
+    dependencies: [
+      {
+        id: icbm_dependency_trade_off.id,
+        type: icbm_dependency_trade_off.challenge_type.name
+      }
+    ]
+  }, {
+    description: "Answer the question by selecting an option",
+    challenge_type: multiple_choice,
+    body: {
+      question: "What is the benefit of having multiple stages of a missile?",
+      options: [
+        "As fuel is spent the heavier engines and components can be shed to reduce weight and thus making the missile more deadly",
+        "As each stage decouples it is easier to more accurately direct the missile",
+        "As fuel is spent the heavier engines and components can be shed to reduce weight and thus allowing the rest of the missile to accelerate further",
+        "Having multiple stages greatly reduces the cost of constructing a missile, thus making ICBMs much more economical"
+      ],
+      correct_answer: "As fuel is spent the heavier engines and components can be shed to reduce weight and thus allowing the rest of the missile to accelerate further"
+    },
+    dependencies: [
+      {
+        id: icbm_dependency_multi_stage.id,
+        type: icbm_dependency_multi_stage.challenge_type.name
+      }
+    ]
+  }, {
+    description: "Answer the question by selecting an option",
+    challenge_type: multiple_choice,
+    body: {
+      question: "A thermonuclear reaction is one where: a _____ reaction which then triggers a secondary ____ reaction.",
+      options: [
+        "Fusion, fission",
+        "Fission, fusion",
+        "Fusion, chain",
+        "Fission, chemical"
+      ],
+      correct_answer: "Fission, fusion"
+    },
+    dependencies: [
+      {
+        id: icbm_dependency_fission_fusion.id,
+        type: icbm_dependency_fission_fusion.challenge_type.name
+      }
+    ]
+  }, {
+    description: "Answer the question by selecting an option",
+    challenge_type: multiple_choice,
+    body: {
+      question: "A fission reaction is one where energy is released when putting atoms together and producing more neutrons.",
+      options: [
+        "True",
+        "False"
+      ],
+      correct_answer: "False"
+    },
+    dependencies: [
+      {
+        id: icbm_dependency_fission.id,
+        type: icbm_dependency_fission.challenge_type.name
+      }
+    ]
+  }, {
+    description: "Answer the question by selecting an option",
+    challenge_type: multiple_choice,
+    body: {
+      question: "More energy is released by breaking chemical bonds than breaking subatomic bonds.",
+      options: [
+        "True",
+        "False"
+      ],
+      correct_answer: "False"
+    }
+  }
+])
+
+
+# icbm course
+icbm_course = Course.create({
+  title: "Why is it so hard to build an ICBM?",
+  description: "",
+  ui: {
+    primaryColor: "#fc4a1a",
+    secondaryColor: "#f7b733",
+    icon: "rocket",
+    subtle: "hex"
+  },
+  flow: [
+    {
+      type: Challenge.find(11).challenge_type.name,
+      id: Challenge.find(11).id
+    }
+  ] + icbm_challenges.map do |c|
     {
       type: c.challenge_type.name,
       id: c.id
