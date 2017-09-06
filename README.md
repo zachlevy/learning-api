@@ -7,6 +7,12 @@ Used for interacting with the `learning-react` client app.
 * `OXFORD_DICTIONARY_APP_KEY` used for `Definitions`
 
 ### Models
+#### Challenge Type
+| Attribute  | Value Type     | Example      | Description |
+|------------|----------------|--------------|-------------|
+| `name` | `string` | `simple_q_and_a` | Machine name, used in `learning-react` for finding the corresponding challenge component |
+| `template_data` | `object` | `{question: "What's up?", answer: "Not much"}` | An object, different for each instance of content type, to be documented separately in `learning-react` |
+
 #### Challenge
 the challenge model has an attribute `body` which is a `jsonb` with the following optional fields depending on the challenge type
 ```
@@ -40,7 +46,7 @@ The course model has an attribute `flow` which is a `jsonb` array of all the con
 | `ui.primaryColor` | `string` | `#000000` | First gradient color |
 | `ui.primaryColor` | `string` | `#000000` | Second gradient color |
 
-#### Definitions
+#### Definition
 Definitions are definitions for words... duh. It uses the oxford API to get definitions and saves the response in the `body` attribute. After save it parses the response and creates an array of strings definitions, stored in `definitions`.
 
 | Attribute  | Value Type     | Example      | Description |
@@ -49,7 +55,7 @@ Definitions are definitions for words... duh. It uses the oxford API to get defi
 | `body` | `object` | `{}` | Response from the server |
 | `definitions` | `array` | `["a tool"]` | parsed definitions |
 
-#### Events
+#### Event
 Events are the homemade analytics from the server. They are created in parallel to Google Analytics and Mixpanel from the `learning-react`.
 
 | Attribute  | Value Type     | Example      | Description |
@@ -58,7 +64,7 @@ Events are the homemade analytics from the server. They are created in parallel 
 | `meta` | `object` | `{url: "/courses"}` | Any sort of meta data |
 | `context` | `object` | `{name: "Played Video"}` | The actual data you want to track |
 
-#### Feedbacks
+#### Feedback
 Feedback is written feedback from the user. It is used for platform improvement and leads.
 
 | Attribute  | Value Type     | Example      | Description |
