@@ -14,14 +14,7 @@ Used for interacting with the `learning-react` client app.
 | `template_data` | `object` | `{question: "What's up?", answer: "Not much"}` | An object, different for each instance of content type, to be documented separately in `learning-react` |
 
 #### Challenge
-the challenge model has an attribute `body` which is a `jsonb` with the following optional fields depending on the challenge type
-```
-{
-  est_duration: 123
-}
-```
-
-A challenge `description` is a full sentence of instructions.
+the challenge model has an attribute `body` which is a `jsonb` with the following optional fields depending on the challenge type.
 
 | Attribute  | Value Type     | Example      | Description |
 |------------|----------------|--------------|-------------|
@@ -32,9 +25,7 @@ A challenge `description` is a full sentence of instructions.
 
 
 #### Course
-The course model has an attribute `ui` which is a `jsonb` object with the fields being used in for the user interface. Example object below.
-
-The course model has an attribute `flow` which is a `jsonb` array of all the content in order.
+The course model has an attribute `ui` which is a `jsonb` object with the fields being used in for the user interface. Example object below. The course model has an attribute `flow` which is a `jsonb` array of all the content in order.
 
 | Attribute  | Value Type     | Example      | Description |
 |------------|----------------|--------------|-------------|
@@ -102,28 +93,13 @@ The input will object will be resaved with a result object property for each obj
 
 `2.3.1`
 
-#### Configuration
-Put ENV vars here
-
 #### Database
 
 `$ bundle exec rake db:reset`
 
-Reset database with
-* `$ heroku pg:reset DATABASE_URL --confirm learning-api-production`
-* `$ heroku run rake db:migrate`
-* `$ heroku run rake db:seed`
-
-OR
-
-`$ heroku pg:reset DATABASE_URL --confirm learning-api-production && heroku run rake db:migrate && heroku run rake db:seed`
-
 #### Testing
 
 `$ bundle exec rspec`
-
-#### Services
-(job queues, cache servers, search engines, etc.)
 
 #### Deployment instructions
 Currently hosted on Heroku app `learning-api-production`.
