@@ -45,18 +45,29 @@ Definitions are definitions for words... duh. It uses the oxford API to get defi
 
 | Attribute  | Value Type     | Example      | Description |
 |------------|----------------|--------------|-------------|
-| `word` | `string` | `axe` | Word to get the definition for. |
-| `body` | `object` | `{}` | Response from the server. |
-| `definitions` | `array` | `["a tool"]` | parsed definitions. |
+| `word` | `string` | `axe` | Word to get the definition for |
+| `body` | `object` | `{}` | Response from the server |
+| `definitions` | `array` | `["a tool"]` | parsed definitions |
 
 #### Events
 Events are the homemade analytics from the server. They are created in parallel to Google Analytics and Mixpanel from the `learning-react`.
 
 | Attribute  | Value Type     | Example      | Description |
 |------------|----------------|--------------|-------------|
-| `relations` | `object` | `{user_id: 1}` | Relations in a hash. |
-| `meta` | `object` | `{url: "/courses"}` | Any sort of meta data. |
-| `context` | `object` | `{name: "Played Video"}` | The actual data you want to track. |
+| `relations` | `object` | `{user_id: 1}` | Relations in a hash |
+| `meta` | `object` | `{url: "/courses"}` | Any sort of meta data |
+| `context` | `object` | `{name: "Played Video"}` | The actual data you want to track |
+
+#### Feedbacks
+Feedback is written feedback from the user. It is used for platform improvement and leads.
+
+| Attribute  | Value Type     | Example      | Description |
+|------------|----------------|--------------|-------------|
+| `body` | `object` | `{message: "Great platform"}` | An object of the actual feedback |
+| `source` | `string` | `modal feedback form` | Name of the source |
+
+### Contents
+Deprecated.
 
 #### Challenge Response
 The challenge response model has an attribute `input` which contains an `jsonb` object with an `analysis` property that specifies the approach to analyze the input. The `text` property is the input text.
