@@ -8,6 +8,7 @@
 #  body              :jsonb
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
+#  dependencies      :jsonb
 #
 
 FactoryGirl.define do
