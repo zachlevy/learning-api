@@ -69,6 +69,13 @@ Deprecated.
 #### Challenge Response
 The challenge response model has an attribute `input` which contains an `jsonb` object with an `analysis` property that specifies the approach to analyze the input. The `text` property is the input text.
 
+| Attribute  | Value Type     | Example      | Description |
+|------------|----------------|--------------|-------------|
+| `input` | `object` | `{...}` | Object with properties for doing analysis |
+| `input.analysis` | `string` | `none` or `sentiment` | Type of analysis method to be run after the save |
+| `input.text` | `string` | `to be analyzed` | Text to be analyzed |
+| `source` | `string` | `modal feedback form` | Name of the source |
+
 ##### Input Object Format
 ```
 {
