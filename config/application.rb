@@ -63,13 +63,9 @@ module LearningApi
       :enable_starttls_auto => true
     }
 
-    config.after_initialize do
-      Rails.application.routes.default_url_options = {
-        :host => "localhost",
-        :port => "3000"
-      }
+    config.to_prepare do
+      DeviseController.respond_to :html, :json
     end
-
 
   end
 end
