@@ -30,8 +30,7 @@ gem "rack-reverse-proxy", require: "rack/reverse_proxy"
 gem 'annotate'
 
 # authentication
-gem 'omniauth'
-gem 'devise_token_auth'
+gem 'devise'
 
 # analysis
 gem 'sentimental'
