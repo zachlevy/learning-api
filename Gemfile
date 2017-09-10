@@ -30,7 +30,8 @@ gem "rack-reverse-proxy", require: "rack/reverse_proxy"
 gem 'annotate'
 
 # authentication
-
+gem 'bcrypt', '~> 3.1.7'
+gem 'knock'
 
 # analysis
 gem 'sentimental'
