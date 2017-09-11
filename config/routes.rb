@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :users
+  resources :users do
+    collection do
+      get 'me' => 'users#me'
+    end
+  end
   post 'user_token' => 'user_token#create'
   resources :definitions
   resources :feedbacks
