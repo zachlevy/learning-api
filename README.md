@@ -14,14 +14,18 @@ Used for interacting with the `learning-react` client app.
 | `template_data` | `object` | `{question: "What's up?", answer: "Not much"}` | An object, different for each instance of content type, to be documented separately in `learning-react` |
 
 #### Challenge
-the challenge model has an attribute `body` which is a `jsonb` with the following optional fields depending on the challenge type.
+A challenge is a piece of content, or a question, or any other sort of material related to the course and presented to the user.
 
 | Attribute  | Value Type     | Example      | Description |
 |------------|----------------|--------------|-------------|
+
+| `description` | `string` | `Answer the question` | A description of the challenge for the learner. |
+| `challenge_type_id` | `integer` | `Relation, determines what the body should contain. |
+| `tags` | `array` | `["kinesthetic"]` | An array of tags describing the challenge. |
 | `dependencies` | `array` | `[{id: "1", type: "simple_q_and_a"}]` | An array of Challenge objects with only `id` and `type`. type is the `challenge_type name` |
-| `tags` | `array` | `["science"]` | An array of strings describing the course |
-| `image_url` | `string` | `http://placehold.it/300x300` | Deprecated |
-| `est_duration` | `integer` | `60` | Estimated time it would take a user to complete the course. It is calculated automatically based on  in the model `course.rb` |
+| `body.tags` | `array` | `["science"]` | An array of strings describing the course |
+| `body.image_url` | `string` | `http://placehold.it/300x300` | Deprecated |
+| `body.est_duration` | `integer` | `60` | Estimated time it would take a user to complete the course. It is calculated automatically based on  in the model `course.rb` |
 
 
 #### Course
