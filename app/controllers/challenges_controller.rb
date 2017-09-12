@@ -50,6 +50,6 @@ class ChallengesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def challenge_params
-      params.require(:challenge).permit(:description, :challenge_type_id, {:body => {}}, {:dependencies => {}})
+      params.require(:challenge).permit(:description, :challenge_type_id, {:body => {}}, {:dependencies => {}}, {:tags => {}})
     end
 end
