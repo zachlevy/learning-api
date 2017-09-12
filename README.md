@@ -63,7 +63,31 @@ Feedback is written feedback from the user. It is used for platform improvement 
 | `body` | `object` | `{message: "Great platform"}` | An object of the actual feedback |
 | `source` | `string` | `modal feedback form` | Name of the source |
 
-### Contents
+#### User
+The user model is used for authentication, other related data to the user is stored in `Profile` model
+
+##### Authentication
+Authentication is handled through JWT. A POST to `/auth_token` will return a token.
+
+POST /auth_token
+```
+{
+  "auth": {
+    "email": "z@z.com",
+    "password": "password"
+  }
+}
+```
+
+Pass the jwt token in a header for an authetnicated request.
+```
+Authorization: Bearer asdfghjkl127890
+```
+
+#### Profile
+Any data related to the user not for authentication.
+
+#### Contents
 Deprecated.
 
 #### Challenge Response
