@@ -53,6 +53,6 @@ class DefinitionsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def definition_params
-      params.require(:definition).permit(:body, :word, :definitions)
+      params.require(:definition).permit({:body => {}}, :word, {:definitions => {}})
     end
 end
