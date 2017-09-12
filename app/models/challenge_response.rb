@@ -14,5 +14,5 @@
 
 class ChallengeResponse < ApplicationRecord
   belongs_to :challenge
-  belongs_to :user
+  belongs_to :user, required: false
 end
