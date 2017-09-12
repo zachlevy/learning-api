@@ -336,12 +336,12 @@ signup_challenges = Challenge.create([
 #   tags: ["Tech", "Crash Course"]
 # })
 
-user1 = User.create({
-  email: "z@z.com",
-  password: "password123",
-  password_confirmation: "password123",
-  confirmed_at: DateTime.now
-})
+# user1 = User.create({
+#   email: "z@z.com",
+#   password: "password123",
+#   password_confirmation: "password123",
+#   confirmed_at: DateTime.now
+# })
 
 # challenges for the cato course
 cato_challenges = Challenge.create([

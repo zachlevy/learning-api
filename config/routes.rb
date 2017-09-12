@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :users do
+    collection do
+      get 'me' => 'users#me'
+    end
+  end
+  post 'user_token' => 'user_token#create'
   resources :definitions
   resources :feedbacks
   resources :profiles
@@ -9,6 +15,5 @@ Rails.application.routes.draw do
   resources :course_contents
   resources :contents
   resources :courses
-  mount_devise_token_auth_for 'User', at: 'auth'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
