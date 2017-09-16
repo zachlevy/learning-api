@@ -4,7 +4,8 @@ class ChallengesController < ApplicationController
   # GET /challenges
   def index
     @challenges = Challenge.all
-
+    @challenges = @challenges.where(id: params[:ids].split(",")) unless params[:ids].nil?
+    
     render json: @challenges
   end
 

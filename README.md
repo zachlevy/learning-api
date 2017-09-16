@@ -118,6 +118,9 @@ The input will object will be resaved with a result object property for each obj
 ##### /courses
 `ids` takes a csv of course ids to return. example `?ids="1,2,3"` and returns only those courses.
 
+##### /challenges
+`ids` takes a csv of challenge ids to return. example `?ids="1,2,3"` and returns only those challenges.
+
 ### Operations
 
 #### Development
