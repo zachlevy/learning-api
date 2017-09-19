@@ -12,140 +12,50 @@ affirmatives = ["aye", "yea", "yeah", "yep", "yes"]
 negatives = ["nay", "no", "nope", "noway", "nah"]
 
 multiple_choice = ChallengeType.create({
-  name: "multiple_choice",
-  template_data: {
-    question: "I speak Hebrew and French but Ann",
-    question_details: "The details about the question are here and totally optional",
-    options: [
-      "don't",
-      "doesn't",
-      "speaks",
-      "doesn't speaks"
-    ],
-    correct_answer: "doesn't",
-    image_url: "http://placehold.it/300x300"
-  }
+  name: "multiple_choice"
 })
 
 # simple Q and A challenge type
 simple_q_and_a = ChallengeType.create({
-  name: "simple_q_and_a",
-  template_data: {
-    question: "Question?",
-    question_details: "The details about the question are here and totally optional",
-    answer: "Answer.", # could also be an array, which any value is correct.
-    max_length: 140,
-    answer_type: "regex", # leave null for everything else
-    dictionary: [
-      {
-        term: "Triumvirate",
-        definition: "A political alliance between Caesar, Pompey, and Crassus",
-        link: "https://en.wikipedia.org/wiki/First_Triumvirate"
-      }
-    ],
-    image_url: "http://placehold.it/300x300"
-  }
+  name: "simple_q_and_a"
 })
 
 # open ended question type
 open_ended_q = ChallengeType.create({
-  name: "open_ended_q",
-  template_data: {
-    question: "Question?",
-    question_details: "The details about the question are here and totally optional",
-    min_length: 10,
-    max_length: 140,
-    dictionary: [
-      {
-        term: "Triumvirate",
-        definition: "A political alliance between Caesar, Pompey, and Crassus",
-        link: "https://en.wikipedia.org/wiki/First_Triumvirate"
-      }
-    ],
-    image_url: "http://placehold.it/300x300"
-  }
+  name: "open_ended_q"
 })
 
 simple_text = ChallengeType.create({
-  name: "simple_text",
-  template_data: {
-    text: "some awesome text to read\n\n\nsee?\n\n- a bullet\n- another bullet",
-    est_duration: 100,
-    image_url: "http://placehold.it/300x300"
-  }
+  name: "simple_text"
 })
 
 # youtube video challenge type
 youtube_video = ChallengeType.create({
   name: "youtube_video",
-  template_data: {
-    youtube_id: "7Qtr_vA3Prw",
-    est_duration: 748,
-    start_seconds: 1,
-    end_seconds: 359
-  }
 })
 
 # wikipedia notes challenge type
 wikipedia_notes = ChallengeType.create({
   name: "wikipedia_notes",
-  template_data: {
-    embed_url: "/wiki/Battle_of_Stamford_Bridge",
-    highlights: [
-      {
-        "title": "Death", # this the title of a section
-        "children": [0, 1, 2] # this is the paragraph index or otherwise children index
-      }
-    ],
-    instructions: [
-      "go to the bottom of the article",
-      "take notes on the topic"
-    ],
-    est_duration: 601,
-    max_length: 140
-  }
 })
 
 # end challenge type
 suggestion_end = ChallengeType.create({
-  name: "suggestion_end",
-  template_data: {
-    courses: [1, 2]
-  }
+  name: "suggestion_end"
 })
 
 # external links suggestion end type
 external_suggestion_end = ChallengeType.create({
-  name: "external_suggestion_end",
-  template_data: {
-    external_contents: [
-      {
-        external_url: "localhost:3002/wiki/Cato_the_Younger",
-        icon: "wikipedia-w",
-        text: "Cato the Younger"
-      }, {
-        external_url: "https://www.youtube.com/watch?v=kOiyt63_1_U",
-        icon: "youtube-play",
-        text: "His Year: Cato (62 B.C.E.)"
-      }
-    ]
-  }
+  name: "external_suggestion_end"
 })
 
 # start challenge type
 simple_start = ChallengeType.create({
-  name: "simple_start",
-  template_data: {
-
-  }
+  name: "simple_start"
 })
 
 simple_signup = ChallengeType.create({
-  name: "simple_signup",
-  template_data: {
-    callToActionText: "What's your email?",
-    buttonText: ""
-  }
+  name: "simple_signup"
 })
 
 # videos for economics
