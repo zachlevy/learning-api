@@ -85,6 +85,10 @@ wikipedia_notes = ChallengeType.create({
         "children": [0, 1, 2] # this is the paragraph index or otherwise children index
       }
     ],
+    instructions: [
+      "go to the bottom of the article",
+      "take notes on the topic"
+    ],
     est_duration: 601,
     max_length: 140
   }
