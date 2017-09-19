@@ -21,7 +21,8 @@ multiple_choice = ChallengeType.create({
       "speaks",
       "doesn't speaks"
     ],
-    correct_answer: "doesn't"
+    correct_answer: "doesn't",
+    image_url: "http://placehold.it/300x300"
   }
 })
 
@@ -39,7 +40,8 @@ simple_q_and_a = ChallengeType.create({
         definition: "A political alliance between Caesar, Pompey, and Crassus",
         link: "https://en.wikipedia.org/wiki/First_Triumvirate"
       }
-    ]
+    ],
+    image_url: "http://placehold.it/300x300"
   }
 })
 
@@ -56,7 +58,17 @@ open_ended_q = ChallengeType.create({
         definition: "A political alliance between Caesar, Pompey, and Crassus",
         link: "https://en.wikipedia.org/wiki/First_Triumvirate"
       }
-    ]
+    ],
+    image_url: "http://placehold.it/300x300"
+  }
+})
+
+simple_text = ChallengeType.create({
+  name: "simple_text",
+  template_data: {
+    text: "some awesome text to read\n\n\nsee?\n\n- a bullet\n- another bullet",
+    est_duration: 100,
+    image_url: "http://placehold.it/300x300"
   }
 })
 
@@ -81,6 +93,10 @@ wikipedia_notes = ChallengeType.create({
         "title": "Death", # this the title of a section
         "children": [0, 1, 2] # this is the paragraph index or otherwise children index
       }
+    ],
+    instructions: [
+      "go to the bottom of the article",
+      "take notes on the topic"
     ],
     est_duration: 601,
     max_length: 140
