@@ -21,7 +21,8 @@ multiple_choice = ChallengeType.create({
       "speaks",
       "doesn't speaks"
     ],
-    correct_answer: "doesn't"
+    correct_answer: "doesn't",
+    image_url: "http://uploadcare.com/2312347890"
   }
 })
 
@@ -39,7 +40,8 @@ simple_q_and_a = ChallengeType.create({
         definition: "A political alliance between Caesar, Pompey, and Crassus",
         link: "https://en.wikipedia.org/wiki/First_Triumvirate"
       }
-    ]
+    ],
+    image_url: "http://uploadcare.com/2312347890"
   }
 })
 
@@ -56,7 +58,8 @@ open_ended_q = ChallengeType.create({
         definition: "A political alliance between Caesar, Pompey, and Crassus",
         link: "https://en.wikipedia.org/wiki/First_Triumvirate"
       }
-    ]
+    ],
+    image_url: "http://uploadcare.com/2312347890"
   }
 })
 
