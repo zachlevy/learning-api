@@ -15,6 +15,7 @@ multiple_choice = ChallengeType.create({
   name: "multiple_choice",
   template_data: {
     question: "I speak Hebrew and French but Ann",
+    question_details: "The details about the question are here and totally optional",
     options: [
       "don't",
       "doesn't",
@@ -31,6 +32,7 @@ simple_q_and_a = ChallengeType.create({
   name: "simple_q_and_a",
   template_data: {
     question: "Question?",
+    question_details: "The details about the question are here and totally optional",
     answer: "Answer.", # could also be an array, which any value is correct.
     max_length: 140,
     answer_type: "regex", # leave null for everything else
@@ -50,6 +52,7 @@ open_ended_q = ChallengeType.create({
   name: "open_ended_q",
   template_data: {
     question: "Question?",
+    question_details: "The details about the question are here and totally optional",
     min_length: 10,
     max_length: 140,
     dictionary: [
