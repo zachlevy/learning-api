@@ -22,7 +22,7 @@ multiple_choice = ChallengeType.create({
       "doesn't speaks"
     ],
     correct_answer: "doesn't",
-    image_url: "http://uploadcare.com/2312347890"
+    image_url: "http://placehold.it/300x300"
   }
 })
 
@@ -41,7 +41,7 @@ simple_q_and_a = ChallengeType.create({
         link: "https://en.wikipedia.org/wiki/First_Triumvirate"
       }
     ],
-    image_url: "http://uploadcare.com/2312347890"
+    image_url: "http://placehold.it/300x300"
   }
 })
 
@@ -59,7 +59,16 @@ open_ended_q = ChallengeType.create({
         link: "https://en.wikipedia.org/wiki/First_Triumvirate"
       }
     ],
-    image_url: "http://uploadcare.com/2312347890"
+    image_url: "http://placehold.it/300x300"
+  }
+})
+
+simple_text = ChallengeType.create({
+  name: "simple_text",
+  template_data: {
+    text: "some awesome text to read\n\n\nsee?\n\n- a bullet\n- another bullet",
+    est_duration: 100,
+    image_url: "http://placehold.it/300x300"
   }
 })
 
