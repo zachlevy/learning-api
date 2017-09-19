@@ -11,7 +11,7 @@ Used for interacting with the `learning-react` client app.
 | Attribute  | Value Type     | Example      | Description |
 |------------|----------------|--------------|-------------|
 | `name` | `string` | `simple_q_and_a` | Machine name, used in `learning-react` for finding the corresponding challenge component |
-| `template_data` | `object` | `{question: "What's up?", answer: "Not much"}` | An object, different for each instance of content type, to be documented separately in `learning-react` |
+| `template_data` | `object` | `{question: "What's up?", answer: "Not much"}` | Deprecated, use frontend for this documentation. An object, different for each instance of content type, to be documented separately in `learning-react` |
 
 #### Challenge
 A challenge is a piece of content, or a question, or any other sort of material related to the course and presented to the user.
