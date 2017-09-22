@@ -11,6 +11,10 @@ affirmatives = ["aye", "yea", "yeah", "yep", "yes"]
 # negative terms
 negatives = ["nay", "no", "nope", "noway", "nah"]
 
+match = ChallengeType.create({
+  name: "matching"
+})
+
 multiple_multiple_choice = ChallengeType.create({
   name: "multiple_multiple_choice"
 })
