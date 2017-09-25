@@ -1,10 +1,12 @@
 class ChallengeResponsesController < ApplicationController
+  before_action :authenticate_user, only: [:create]
+
   before_action :set_challenge_response, only: [:show, :update, :destroy]
 
   # GET /challenge_responses
   def index
     @challenge_responses = ChallengeResponse.all
-
+    @challenge_responses = @challenge_responses.where(challenge_id: params[:challenge_ids].split(",")) unless params[:course_id].nil?
     render json: @challenge_responses
   end
 
