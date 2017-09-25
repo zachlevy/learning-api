@@ -1,5 +1,5 @@
 class ChallengeResponsesController < ApplicationController
-  before_action :authenticate_user, only: [:create]
+  before_action :authenticate_user_or_anonymous_user, only: [:create]
 
   before_action :set_challenge_response, only: [:show, :update, :destroy]
 
@@ -19,8 +19,14 @@ class ChallengeResponsesController < ApplicationController
   def create
     @challenge_response = ChallengeResponse.new(challenge_response_params)
 
-    # get user
-    @challenge_response.user = current_user
+    # set user
+    user = current_user_or_anonymous_user
+    if user.class.to_s == "User"
+      @challenge_response.user = user
+    end
+    if user.class.to_s == "AnonymousUser"
+      @challenge_response.anonymous_user = user
+    end
 
     # save initially
     if @challenge_response.save
