@@ -10,10 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170925170351) do
+ActiveRecord::Schema.define(version: 20170925184756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "anonymous_users", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "challenge_responses", force: :cascade do |t|
     t.jsonb "input", default: {}
@@ -24,6 +29,8 @@ ActiveRecord::Schema.define(version: 20170925170351) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.bigint "course_id"
+    t.bigint "anonymous_user_id"
+    t.index ["anonymous_user_id"], name: "index_challenge_responses_on_anonymous_user_id"
     t.index ["challenge_id"], name: "index_challenge_responses_on_challenge_id"
     t.index ["course_id"], name: "index_challenge_responses_on_course_id"
     t.index ["user_id"], name: "index_challenge_responses_on_user_id"
@@ -108,6 +115,7 @@ ActiveRecord::Schema.define(version: 20170925170351) do
     t.boolean "admin", default: false
   end
 
+  add_foreign_key "challenge_responses", "anonymous_users"
   add_foreign_key "challenge_responses", "challenges"
   add_foreign_key "challenge_responses", "courses"
   add_foreign_key "challenge_responses", "users"
