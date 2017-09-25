@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :anonymous_users
   resources :users do
     collection do
       get 'me' => 'users#me'

@@ -1,0 +1,2 @@
+class AnonymousUser < ApplicationRecord
+end
