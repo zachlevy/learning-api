@@ -17,6 +17,9 @@ class ChallengeResponsesController < ApplicationController
   def create
     @challenge_response = ChallengeResponse.new(challenge_response_params)
 
+    # get user
+    @challenge_response.user = current_user
+
     # save initially
     if @challenge_response.save
       if @challenge_response.input["analysis"] == "sentiment"
@@ -56,6 +59,6 @@ class ChallengeResponsesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def challenge_response_params
-      params.require(:challenge_response).permit({:input => {}}, :asked_at, :completed_at, :challenge_id, :user_id)
+      params.require(:challenge_response).permit({:input => {}}, :asked_at, :completed_at, :challenge_id, :user_id, :course_id)
     end
 end

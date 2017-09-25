@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170914193423) do
+ActiveRecord::Schema.define(version: 20170925170351) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,9 @@ ActiveRecord::Schema.define(version: 20170914193423) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.bigint "course_id"
     t.index ["challenge_id"], name: "index_challenge_responses_on_challenge_id"
+    t.index ["course_id"], name: "index_challenge_responses_on_course_id"
     t.index ["user_id"], name: "index_challenge_responses_on_user_id"
   end
 
@@ -107,6 +109,7 @@ ActiveRecord::Schema.define(version: 20170914193423) do
   end
 
   add_foreign_key "challenge_responses", "challenges"
+  add_foreign_key "challenge_responses", "courses"
   add_foreign_key "challenge_responses", "users"
   add_foreign_key "challenges", "challenge_types"
   add_foreign_key "profiles", "users"
