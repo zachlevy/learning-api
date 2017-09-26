@@ -15,4 +15,6 @@
 class ChallengeResponse < ApplicationRecord
   belongs_to :challenge
   belongs_to :user, required: false
+  belongs_to :anonymous_user, required: false
+  belongs_to :course
 end

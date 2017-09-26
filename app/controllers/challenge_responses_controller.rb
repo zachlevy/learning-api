@@ -1,10 +1,12 @@
 class ChallengeResponsesController < ApplicationController
+  before_action :authenticate_user_or_anonymous_user, only: [:create]
+
   before_action :set_challenge_response, only: [:show, :update, :destroy]
 
   # GET /challenge_responses
   def index
     @challenge_responses = ChallengeResponse.all
-
+    @challenge_responses = @challenge_responses.where(challenge_id: params[:challenge_ids].split(",")) unless params[:course_id].nil?
     render json: @challenge_responses
   end
 
@@ -16,6 +18,15 @@ class ChallengeResponsesController < ApplicationController
   # POST /challenge_responses
   def create
     @challenge_response = ChallengeResponse.new(challenge_response_params)
+
+    # set user
+    user = current_user_or_anonymous_user
+    if user.class.to_s == "User"
+      @challenge_response.user = user
+    end
+    if user.class.to_s == "AnonymousUser"
+      @challenge_response.anonymous_user = user
+    end
 
     # save initially
     if @challenge_response.save
@@ -56,6 +67,6 @@ class ChallengeResponsesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def challenge_response_params
-      params.require(:challenge_response).permit({:input => {}}, :asked_at, :completed_at, :challenge_id, :user_id)
+      params.require(:challenge_response).permit({:input => {}}, :asked_at, :completed_at, :challenge_id, :user_id, :course_id)
     end
 end

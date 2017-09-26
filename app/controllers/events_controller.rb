@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user_or_anonymous_user, only: [:create]
   before_action :set_event, only: [:show, :update, :destroy]
 
   # GET /events
@@ -16,6 +17,14 @@ class EventsController < ApplicationController
   # POST /events
   def create
     @event = Event.new(event_params)
+
+    user = current_user_or_anonymous_user
+    if user.class.to_s == "User" && !user.nil?
+      @event.relations["user_id"] = user.id
+    end
+    if user.class.to_s == "AnonymousUser" && !user.nil?
+      @event.relations["anonymous_user"] = user.id
+    end
 
     if @event.save
       render json: @event, status: :created, location: @event
