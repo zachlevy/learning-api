@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170929192551) do
+ActiveRecord::Schema.define(version: 20170929193311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,17 @@ ActiveRecord::Schema.define(version: 20170929192551) do
     t.jsonb "dependencies", default: []
     t.jsonb "tags", default: []
     t.index ["challenge_type_id"], name: "index_challenges_on_challenge_type_id"
+  end
+
+  create_table "collections", force: :cascade do |t|
+    t.string "name"
+    t.string "slug"
+    t.jsonb "flow", default: []
+    t.text "description"
+    t.jsonb "body", default: {}
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_collections_on_slug", unique: true
   end
 
   create_table "contents", force: :cascade do |t|
