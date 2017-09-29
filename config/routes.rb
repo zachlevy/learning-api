@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   post 'user_token' => 'user_token#create'
   resources :definitions
   resources :feedbacks
-  resources :profiles
+  resources :profiles do
+    collection do
+      get 'me' => 'profiles#me'
+    end
+  end
   resources :events
   resources :challenge_responses
   resources :challenges

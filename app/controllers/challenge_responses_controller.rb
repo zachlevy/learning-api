@@ -5,9 +5,20 @@ class ChallengeResponsesController < ApplicationController
 
   # GET /challenge_responses
   def index
-    @challenge_responses = ChallengeResponse.all
-    @challenge_responses = @challenge_responses.where(challenge_id: params[:challenge_ids].split(",")) unless params[:course_id].nil?
-    render json: @challenge_responses
+
+    # get the user's own challenge responses only
+    if current_user_or_anonymous_user
+      @challenge_responses = current_user_or_anonymous_user.challenge_responses
+    else
+      @challenge_responses = ChallengeResponse.all
+    end
+    @challenge_responses = @challenge_responses.where(course_id: params[:course_id]) unless params[:course_id].nil?
+
+    # whitelist relations to be nested in response
+    whitelist_methods = [:challenge]
+    methods = []
+    methods = params[:include].split(",").map {|m| m.to_sym}.reject {|m| !whitelist_methods.include? m} unless params[:include].nil?
+    render json: @challenge_responses.as_json(methods: methods)
   end
 
   # GET /challenge_responses/1
