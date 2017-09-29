@@ -53,11 +53,11 @@ class ChallengesController < ApplicationController
       strong_params = params.require(:challenge).permit(:description, :challenge_type_id, {:body => {}}, {:dependencies => []}, {:tags => []})
       # merge strong params because rails doesn't have arrays of arrays in strong params yet
       # https://github.com/rails/rails/pull/23650
-      strong_params = strong_params.merge({
-        :body => {
-          :options => params[:challenge][:body][:options]
+      strong_params = strong_params.to_hash.deep_merge({
+        "body" => {
+          "options" => params["challenge"]["body"]["options"]
         }
-      }) if !params[:challenge][:body].nil? && !params[:challenge][:body][:options].nil?
+      }) if !params["challenge"]["body"].nil? && !params["challenge"]["body"]["options"].nil?
       strong_params
     end
 end
