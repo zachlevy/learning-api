@@ -22,6 +22,10 @@ class ChallengesController < ApplicationController
   def create
     @challenge = Challenge.new(challenge_params)
 
+    # skip strong params because rails doesn't have arrays of arrays in strong params yet
+    # https://github.com/rails/rails/pull/23650
+    @challenge.body[:options] = params[:challenge][:body][:options] unless params[:challenge][:body].nil?
+
     if @challenge.save
       render json: @challenge, status: :created, location: @challenge
     else
@@ -31,6 +35,11 @@ class ChallengesController < ApplicationController
 
   # PATCH/PUT /challenges/1
   def update
+
+    # skip strong params because rails doesn't have arrays of arrays in strong params yet
+    # https://github.com/rails/rails/pull/23650
+    @challenge.body[:options] = params[:challenge][:body][:options] unless params[:challenge][:body].nil?
+
     if @challenge.update(challenge_params)
       render json: @challenge
     else
