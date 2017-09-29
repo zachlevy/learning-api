@@ -8,6 +8,16 @@ class ProfilesController < ApplicationController
     render json: @profiles
   end
 
+  # GET /profiles/me
+  def me
+    if current_user_or_anonymous_user.nil?
+      render status: 400
+      return
+    end
+    @profile = current_user_or_anonymous_user.profile
+    render json: @profile
+  end
+
   # GET /profiles/1
   def show
     render json: @profile

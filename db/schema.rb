@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170925184756) do
+ActiveRecord::Schema.define(version: 20170928152828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,6 +104,8 @@ ActiveRecord::Schema.define(version: 20170925184756) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.bigint "anonymous_user_id"
+    t.index ["anonymous_user_id"], name: "index_profiles_on_anonymous_user_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
@@ -120,5 +122,6 @@ ActiveRecord::Schema.define(version: 20170925184756) do
   add_foreign_key "challenge_responses", "courses"
   add_foreign_key "challenge_responses", "users"
   add_foreign_key "challenges", "challenge_types"
+  add_foreign_key "profiles", "anonymous_users"
   add_foreign_key "profiles", "users"
 end
