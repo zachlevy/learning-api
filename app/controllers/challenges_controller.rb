@@ -5,7 +5,7 @@ class ChallengesController < ApplicationController
   def index
     @challenges = Challenge.all
     @challenges = @challenges.where(id: params[:ids].split(",")) unless params[:ids].nil?
-    
+
     render json: @challenges
   end
 
@@ -21,11 +21,6 @@ class ChallengesController < ApplicationController
   # POST /challenges
   def create
     @challenge = Challenge.new(challenge_params)
-
-    # skip strong params because rails doesn't have arrays of arrays in strong params yet
-    # https://github.com/rails/rails/pull/23650
-    @challenge.body[:options] = params[:challenge][:body][:options] unless params[:challenge][:body].nil?
-
     if @challenge.save
       render json: @challenge, status: :created, location: @challenge
     else
@@ -35,11 +30,6 @@ class ChallengesController < ApplicationController
 
   # PATCH/PUT /challenges/1
   def update
-
-    # skip strong params because rails doesn't have arrays of arrays in strong params yet
-    # https://github.com/rails/rails/pull/23650
-    @challenge.body[:options] = params[:challenge][:body][:options] unless params[:challenge][:body].nil?
-
     if @challenge.update(challenge_params)
       render json: @challenge
     else
@@ -60,6 +50,14 @@ class ChallengesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def challenge_params
-      params.require(:challenge).permit(:description, :challenge_type_id, {:body => {}}, {:dependencies => []}, {:tags => []})
+      strong_params = params.require(:challenge).permit(:description, :challenge_type_id, {:body => {}}, {:dependencies => []}, {:tags => []})
+      # merge strong params because rails doesn't have arrays of arrays in strong params yet
+      # https://github.com/rails/rails/pull/23650
+      strong_params = strong_params.merge({
+        :body => {
+          :options => params[:challenge][:body][:options]
+        }
+      }) if !params[:challenge][:body].nil? && !params[:challenge][:body][:options].nil?
+      strong_params
     end
 end
