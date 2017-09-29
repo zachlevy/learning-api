@@ -33,6 +33,9 @@ gem 'annotate'
 gem 'bcrypt', '~> 3.1.7'
 gem 'knock'
 
+# helpers
+gem 'friendly_id', '~> 5.1.0'
+
 # analysis
 gem 'sentimental'
 
