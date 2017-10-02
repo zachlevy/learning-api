@@ -4,7 +4,14 @@ class CoursesController < ApplicationController
   # GET /courses
   def index
     @courses = Course.all
-    @courses = @courses.where(id: params[:ids].split(",")) unless params[:ids].nil?
+
+    # preserve order from ids param
+    # https://stackoverflow.com/questions/10150152/find-model-records-by-id-in-the-order-the-array-of-ids-were-given
+    unless params[:ids].nil?
+      ids = params[:ids].split(",").map(&:to_i)
+      indexed_courses = Course.find(ids).index_by(&:id)
+      @courses = ids.map { |id| indexed_courses[id] }
+    end
 
     render json: @courses
   end
