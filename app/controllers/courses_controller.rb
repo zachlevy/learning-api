@@ -5,6 +5,8 @@ class CoursesController < ApplicationController
   def index
     @courses = Course.all
 
+    @courses = @courses.order(id: :desc) # order newest first by default
+
     # preserve order from ids param
     # https://stackoverflow.com/questions/10150152/find-model-records-by-id-in-the-order-the-array-of-ids-were-given
     unless params[:ids].nil?
