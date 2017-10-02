@@ -15,7 +15,7 @@
 #
 
 class Course < ApplicationRecord
-  before_save :calculate_est_duration
+  # before_save :calculate_est_duration # temporarily turn off, make it manual later maybe
   has_many :challenge_responses
 
   def calculate_est_duration
