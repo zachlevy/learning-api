@@ -7,7 +7,7 @@ class ChallengeResponsesController < ApplicationController
   def index
 
     # get the user's own challenge responses only
-    if current_user_or_anonymous_user
+    if current_user_or_anonymous_user && params[:all] != "true"
       @challenge_responses = current_user_or_anonymous_user.challenge_responses
     else
       @challenge_responses = ChallengeResponse.all
