@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170929193311) do
+ActiveRecord::Schema.define(version: 20171003022314) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -128,6 +128,7 @@ ActiveRecord::Schema.define(version: 20170929193311) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.bigint "anonymous_user_id"
+    t.jsonb "courses", default: []
     t.index ["anonymous_user_id"], name: "index_profiles_on_anonymous_user_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end

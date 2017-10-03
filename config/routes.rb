@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :anonymous_users
   resources :users do
     collection do
-      get 'me' => 'users#me'
+      get 'me' => 'users#get_me'
     end
   end
   post 'user_token' => 'user_token#create'
@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   resources :feedbacks
   resources :profiles do
     collection do
-      get 'me' => 'profiles#me'
+      get 'me' => 'profiles#get_me'
+      put 'me' => 'profiles#put_me'
     end
   end
   resources :events

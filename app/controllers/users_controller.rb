@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   end
 
   # GET /users/me
-  def me
+  def get_me
     @user = current_user
     render json: @user, only: [:id, :email, :admin]
   end
