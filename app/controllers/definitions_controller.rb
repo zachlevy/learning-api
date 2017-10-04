@@ -1,5 +1,5 @@
 class DefinitionsController < ApplicationController
-  before_action :set_definition, only: [:show, :update, :destroy]
+  before_action :set_definition, only: [:show]
 
   # GET /definitions
   def index
@@ -29,20 +29,6 @@ class DefinitionsController < ApplicationController
     else
       render json: @definition.errors, status: :unprocessable_entity
     end
-  end
-
-  # PATCH/PUT /definitions/1
-  def update
-    if @definition.update(definition_params)
-      render json: @definition
-    else
-      render json: @definition.errors, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /definitions/1
-  def destroy
-    @definition.destroy
   end
 
   private

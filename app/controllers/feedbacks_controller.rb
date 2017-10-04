@@ -1,18 +1,5 @@
 class FeedbacksController < ApplicationController
-  before_action :authenticate_user_or_anonymous_user, only: [:create]
-  before_action :set_feedback, only: [:show, :update, :destroy]
-
-  # GET /feedbacks
-  def index
-    @feedbacks = Feedback.all
-
-    render json: @feedbacks
-  end
-
-  # GET /feedbacks/1
-  def show
-    render json: @feedback
-  end
+  before_action :authenticate_user_or_anonymous_user
 
   # POST /feedbacks
   def create
@@ -33,26 +20,7 @@ class FeedbacksController < ApplicationController
     end
   end
 
-  # PATCH/PUT /feedbacks/1
-  def update
-    if @feedback.update(feedback_params)
-      render json: @feedback
-    else
-      render json: @feedback.errors, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /feedbacks/1
-  def destroy
-    @feedback.destroy
-  end
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_feedback
-      @feedback = Feedback.find(params[:id])
-    end
-
     # Only allow a trusted parameter "white list" through.
     def feedback_params
       params.require(:feedback).permit({:body => {}}, :source)

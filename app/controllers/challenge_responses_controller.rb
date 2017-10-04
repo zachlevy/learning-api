@@ -1,17 +1,12 @@
 class ChallengeResponsesController < ApplicationController
-  before_action :authenticate_user_or_anonymous_user, only: [:create]
-
-  before_action :set_challenge_response, only: [:show, :update, :destroy]
+  before_action :authenticate_user_or_anonymous_user
+  before_action :set_challenge_response, only: [:show, :destroy]
 
   # GET /challenge_responses
   def index
-
     # get the user's own challenge responses only
-    if current_user_or_anonymous_user && params[:all] != "true"
-      @challenge_responses = current_user_or_anonymous_user.challenge_responses
-    else
-      @challenge_responses = ChallengeResponse.all
-    end
+    @challenge_responses = current_user_or_anonymous_user.challenge_responses
+
     @challenge_responses = @challenge_responses.where(course_id: params[:course_id]) unless params[:course_id].nil?
 
     # whitelist relations to be nested in response
@@ -56,24 +51,10 @@ class ChallengeResponsesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /challenge_responses/1
-  def update
-    if @challenge_response.update(challenge_response_params)
-      render json: @challenge_response
-    else
-      render json: @challenge_response.errors, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /challenge_responses/1
-  def destroy
-    @challenge_response.destroy
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_challenge_response
-      @challenge_response = ChallengeResponse.find(params[:id])
+      @challenge_response = current_user_or_anonymous_user.challenge_responses.where(id: id).first
     end
 
     # Only allow a trusted parameter "white list" through.
