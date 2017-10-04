@@ -3,7 +3,8 @@ class AnonymousUsersController < ApplicationController
 
   # GET /anonymous_users
   def index
-    @anonymous_users = AnonymousUser.all
+    # get all anonymous_users in reverse order
+    @anonymous_users = AnonymousUser.all.order(:id).reverse_order
 
     render json: @anonymous_users
   end

@@ -3,9 +3,9 @@ class CoursesController < ApplicationController
 
   # GET /courses
   def index
-    @courses = Course.all
+    # order newest first by default
+    @courses = Course.all.order(:id).reverse_order
 
-    @courses = @courses.order(id: :desc) # order newest first by default
 
     # preserve order from ids param
     # https://stackoverflow.com/questions/10150152/find-model-records-by-id-in-the-order-the-array-of-ids-were-given

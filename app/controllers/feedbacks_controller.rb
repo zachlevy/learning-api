@@ -4,7 +4,8 @@ class FeedbacksController < ApplicationController
 
   # GET /feedbacks
   def index
-    @feedbacks = Feedback.all
+    # get all feedback in reverse order
+    @feedbacks = Feedback.all.order(:id).reverse_order
 
     render json: @feedbacks
   end

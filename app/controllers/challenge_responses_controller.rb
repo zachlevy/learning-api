@@ -6,11 +6,12 @@ class ChallengeResponsesController < ApplicationController
   # GET /challenge_responses
   def index
 
-    # get the user's own challenge responses only
+    # get the user's own challenge responses only, unless you are admin then you get all
     if current_user_or_anonymous_user && params[:all] != "true"
       @challenge_responses = current_user_or_anonymous_user.challenge_responses
     else
-      @challenge_responses = ChallengeResponse.all
+      # get all challenge_reponses in reverse order for admins only
+      @challenge_responses = ChallengeResponse.all.order(:id).reverse_order
     end
     @challenge_responses = @challenge_responses.where(course_id: params[:course_id]) unless params[:course_id].nil?
 
