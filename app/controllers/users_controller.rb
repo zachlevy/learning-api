@@ -5,7 +5,8 @@ class UsersController < ApplicationController
 
   # GET /users
   def index
-    @users = User.all
+    # get all users in reverse order
+    @users = User.all.order(:id).reverse_order
 
     render json: @users
   end
