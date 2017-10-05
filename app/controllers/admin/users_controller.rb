@@ -3,7 +3,7 @@ class Admin::UsersController < AdminController
 
   # GET /admin/users
   def index
-    @users = User.all
+    @users = User.all.order(id: :desc)
 
     render json: @users
   end
