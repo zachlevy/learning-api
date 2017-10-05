@@ -6,7 +6,7 @@ class ChallengeResponsesController < ApplicationController
   def index
     # get the user's own challenge responses only
     @challenge_responses = current_user_or_anonymous_user.challenge_responses
-
+    
     @challenge_responses = @challenge_responses.where(course_id: params[:course_id]) unless params[:course_id].nil?
 
     # whitelist relations to be nested in response
