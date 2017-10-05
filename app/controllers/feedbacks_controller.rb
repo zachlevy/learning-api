@@ -1,6 +1,6 @@
 class FeedbacksController < ApplicationController
   before_action :authenticate_user_or_anonymous_user
-
+  
   # POST /feedbacks
   def create
     @feedback = Feedback.new(feedback_params)
