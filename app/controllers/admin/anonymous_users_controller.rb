@@ -1,8 +1,8 @@
 class Admin::AnonymousUsersController < AdminController
   # GET /admin/anonymous_users
   def index
-    @anonymous_users = AnonymousUser.all
-
+    # get all anonymous_users in reverse order
+    @anonymous_users = AnonymousUser.all.order(id: :desc)
     render json: @anonymous_users
   end
 

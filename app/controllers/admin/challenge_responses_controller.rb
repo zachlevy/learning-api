@@ -3,7 +3,8 @@ class Admin::ChallengeResponsesController < AdminController
 
   # GET /admin/challenge_responses
   def index
-    @challenge_responses = ChallengeResponse.all
+    # get all challenge_reponses in reverse order for admins only
+    @challenge_responses = ChallengeResponse.all.order(id: :desc)
     render json: @challenge_responses
   end
 

@@ -3,7 +3,7 @@ class Admin::FeedbacksController < AdminController
 
   # GET /admin/feedbacks
   def index
-    @feedbacks = Feedback.all
+    @feedbacks = Feedback.all.order(id: :desc)
 
     render json: @feedbacks
   end
