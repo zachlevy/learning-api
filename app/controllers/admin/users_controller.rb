@@ -1,4 +1,4 @@
-class UsersController < AdminController
+class Admin::UsersController < AdminController
   before_action :set_user, only: [:show, :update, :destroy]
 
   # GET /admin/users

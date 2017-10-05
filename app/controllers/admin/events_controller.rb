@@ -1,4 +1,4 @@
-class EventsController < AdminController
+class Admin::EventsController < AdminController
   before_action :authenticate_user_or_anonymous_user, only: [:create]
   before_action :set_event, only: [:show, :update, :destroy]
 

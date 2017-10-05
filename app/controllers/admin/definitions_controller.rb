@@ -1,4 +1,4 @@
-class DefinitionsController < AdminController
+class Admin::DefinitionsController < AdminController
   before_action :set_definition, only: [:show, :update, :destroy]
 
   # GET /admin/definitions

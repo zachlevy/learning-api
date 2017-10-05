@@ -1,4 +1,4 @@
-class FeedbacksController < AdminController
+class Admin::FeedbacksController < AdminController
   before_action :set_feedback, only: [:show, :update, :destroy]
 
   # GET /admin/feedbacks

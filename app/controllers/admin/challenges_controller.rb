@@ -1,4 +1,4 @@
-class ChallengesController < AdminController
+class Admin::ChallengesController < AdminController
   before_action :set_challenge, only: [:show, :update, :destroy]
 
   # GET /admin/challenges

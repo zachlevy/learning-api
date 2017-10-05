@@ -1,4 +1,4 @@
-class ChallengeResponsesController < AdminController
+class Admin::ChallengeResponsesController < AdminController
   before_action :set_challenge_response, only: [:show, :update, :destroy]
 
   # GET /admin/challenge_responses
@@ -15,6 +15,7 @@ class ChallengeResponsesController < AdminController
   # POST /admin/challenge_responses
   def create
     @challenge_response = ChallengeResponse.new(challenge_response_params)
+    if @challenge_response.save
       render json: @challenge_response, status: :created, location: @challenge_response
     else
       render json: @challenge_response.errors, status: :unprocessable_entity

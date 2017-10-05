@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       put 'me' => 'profiles#put_me'
     end
   end
-  resources :events, only: [:index, :show]
+  resources :events, only: [:create]
   resources :challenge_responses, only: [:index, :show, :create]
   resources :challenges, only: [:index, :show]
   resources :challenge_types, only: [:index, :show]

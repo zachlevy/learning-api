@@ -1,4 +1,4 @@
-class AnonymousUsersController < AdminController
+class Admin::AnonymousUsersController < AdminController
   # GET /admin/anonymous_users
   def index
     @anonymous_users = AnonymousUser.all

@@ -14,7 +14,7 @@ class FeedbacksController < ApplicationController
     end
 
     if @feedback.save
-      render json: @feedback, status: :created, location: @feedback
+      render json: @feedback, status: :created # , location: @feedback
     else
       render json: @feedback.errors, status: :unprocessable_entity
     end

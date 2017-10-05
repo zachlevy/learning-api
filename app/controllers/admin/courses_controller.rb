@@ -1,4 +1,4 @@
-class CoursesController < AdminController
+class Admin::CoursesController < AdminController
   before_action :set_course, only: [:show, :update, :destroy]
 
   # GET /admin/courses

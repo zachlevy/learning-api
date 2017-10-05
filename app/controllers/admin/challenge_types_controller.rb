@@ -1,4 +1,4 @@
-class ChallengeTypesController < AdminController
+class Admin::ChallengeTypesController < AdminController
   before_action :set_challenge_type, only: [:show, :update, :destroy]
 
   # GET /admin/challenge_types
