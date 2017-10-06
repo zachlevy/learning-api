@@ -3,7 +3,7 @@ class Admin::CoursesController < AdminController
 
   # GET /admin/courses
   def index
-    @courses = Course.all
+    @courses = Course.all.order(id: :desc)
     render json: @courses
   end
 
