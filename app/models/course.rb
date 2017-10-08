@@ -32,5 +32,6 @@ class Course < ApplicationRecord
       c["description"] = Challenge.find(c["id"]).description
       c
     end
+    true
   end
 end
