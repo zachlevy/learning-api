@@ -32,6 +32,5 @@ class Course < ApplicationRecord
       c["description"] = Challenge.find(c["id"]).description
       c
     end
-    self.save
   end
 end
