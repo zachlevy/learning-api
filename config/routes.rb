@@ -19,7 +19,11 @@ Rails.application.routes.draw do
   resources :challenge_responses, only: [:index, :show, :create]
   resources :challenges, only: [:index, :show]
   resources :challenge_types, only: [:index, :show]
-  resources :courses, only: [:index, :show]
+  resources :courses, only: [:index, :show] do
+    collection do
+      get 'attempts' => 'courses#attempts'
+    end
+  end
 
   # admin routes
   namespace :admin do
