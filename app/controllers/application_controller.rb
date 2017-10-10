@@ -23,4 +23,13 @@ class ApplicationController < ActionController::API
       return nil
     end
   end
+
+  def current_anonymous_user
+    if !request.headers["AnonymousUser"].nil?
+      user = AnonymousUser.find(request.headers["AnonymousUser"])
+      return user
+    else
+      return nil
+    end
+  end
 end
