@@ -1,4 +1,5 @@
 class CoursesController < ApplicationController
+  before_action :authenticate_user_or_anonymous_user, only: [:attempts]
   before_action :set_course, only: [:show]
 
   # GET /courses
@@ -16,6 +17,15 @@ class CoursesController < ApplicationController
     end
 
     render json: @courses
+  end
+
+  # GET /courses/attempts
+  # returns an array of course ids that the user has attempted
+  # [1, 2, 3]
+  def attempts
+    @course_ids = current_user_or_anonymous_user.challenge_responses.select(:course_id).group(:course_id).map(&:course_id).compact
+
+    render json: @course_ids
   end
 
   # GET /courses/1
