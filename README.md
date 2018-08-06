@@ -1,6 +1,9 @@
 # Learning Platform Rails API
 Used for interacting with the [learning-react](https://github.com/zachlevy/learning-react) client app.
 
+### Approach
+This project gives a high degree of flexibility around creating and answering learning challenges.
+
 ### Environment Variables
 * `API_URL` base url for the `learning-api` server
 * `OXFORD_DICTIONARY_APP_ID` used for `Definitions`
