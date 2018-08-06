@@ -1,5 +1,5 @@
 # Learning Platform Rails API
-Used for interacting with the `learning-react` client app.
+Used for interacting with the [learning-react](https://github.com/zachlevy/learning-react) client app.
 
 ### Environment Variables
 * `API_URL` base url for the `learning-api` server
@@ -18,7 +18,6 @@ A challenge is a piece of content, or a question, or any other sort of material 
 
 | Attribute  | Value Type     | Example      | Description |
 |------------|----------------|--------------|-------------|
-
 | `description` | `string` | `Answer the question` | A description of the challenge for the learner. |
 | `challenge_type_id` | `integer` | `Relation, determines what the body should contain. |
 | `tags` | `array` | `["kinesthetic"]` | An array of tags describing the challenge. |
